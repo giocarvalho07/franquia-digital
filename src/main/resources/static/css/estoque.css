@@ -16,8 +16,6 @@ p {
     color: #999;
 }
 
-
-
 a,
 a:hover,
 a:focus {
@@ -28,21 +26,17 @@ a:focus {
 
 .navbar {
     padding: 15px 10px;
+    background: #fff;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.bg-light{
-	background-color: transparent;	
-}
-
 .navbar-btn {
     box-shadow: none;
     outline: none !important;
     border: none;
-    background-color: #0CEE81;
 }
 
 .btn-info {
@@ -96,33 +90,143 @@ h3.logotipo{
 	width: 150px;/* Faz a largura ficar igual a da largura da imagem de exemplo */
 	height: 150px;/* Faz a altura ficar igual a da altura da imagem de exemplo */
 }
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
 
-h4 {
-    font-family: 'Red Hat Text', sans-serif;
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #0CEE81;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+}
+
+#sidebar.active .sidebar-header h3,
+#sidebar.active .CTAs {
+    display: none;
+}
+
+#sidebar.active .sidebar-header strong {
+    display: block;
+}
+
+#sidebar ul li a {
+    text-align: left;
+}
+
+#sidebar.active ul li a {
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+#sidebar.active ul li a i {
+    margin-right: 0;
+    display: block;
     font-size: 1.8em;
-    font-weight: 400;
-    line-height: 1.7em;
-    color: #414141;
+    margin-bottom: 5px;
 }
 
-.nav-verde{
-	background-color: #29CC7E;
+#sidebar.active ul ul a {
+    padding: 10px !important;
 }
 
-.text-nav{
-	font-family: 'Red Hat Text', sans-serif;
+#sidebar.active .dropdown-toggle::after {
+    top: auto;
+    bottom: 10px;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0CEE81;
+}
+
+#sidebar .sidebar-header strong {
+    display: none;
     font-size: 1.8em;
-    font-weight: 400;
-    line-height: 1.7em;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #0CEE81;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #343030;
+    background: #fff;
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
     color: #414141;
+    background: #0CEE81;
 }
 
-.text-button {
-	color: #414141;
+a[data-toggle="collapse"] {
+    position: relative;
 }
 
-.fa-sign-in-alt{
-	color: #414141;
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #414141;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #414141;
+    color: #0CEE81;
+}
+
+a.article,
+a.article:hover {
+    background: #FD6699 !important;
+    color: #414141 !important;
 }
 
 
@@ -135,94 +239,9 @@ h4 {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
-    background-color: #0CEE81;
-}
-
-.card-img-top{
-	width: 100px;
-	height: 100px;
-}
-
-.card-img-top-banner{
-	width: 550px;
-	height: 550px;
-}
-
-.btn-rosa{
-	color: rgb(255, 255, 255);
-    background-color: #FD6699;
-    border-color: #FD6699;
-    padding: 15px;
-}
-
-.btn-preto{
-	color: #fff;
-    background-color: #343030;
-    border-color: #343030;
-}
-
-.btn-preto :hover{
-	color: #fff;
-    background-color: #343030;
-    border-color: #343030;
-}
-
-.conatiner-bloco{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 550px;
-}
-
-.container-conteudo{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 450px;
-	flex-direction: column;
-}
-.container-img{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 450px;
 }
 
 
-* {
-  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif, Arial;
-}
-.content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.typedtext {
-  animation: blinkTextCursor 800ms steps(44) infinite normal;
-  color: #000;
-  background-color: #fff;	
-  align-items: center;
-  border-radius: 10px;
-}
-
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: black;
-  }
-  to {
-    border-right-color: transparent;
-  }
-}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
