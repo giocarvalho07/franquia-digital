@@ -6,10 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 @Entity
-@Table
 public class Estoque implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -19,11 +18,7 @@ public class Estoque implements Serializable{
 	private Long id;
 	
 	@Column(name = "nome_estoque")
-	private String nomeEstoque;
-	
-
-	public Estoque() {
-	}
+	private String nome_estoque;
 
 	public Long getId() {
 		return id;
@@ -33,23 +28,27 @@ public class Estoque implements Serializable{
 		this.id = id;
 	}
 
-	public String getNomeEstoque() {
-		return nomeEstoque;
+	public String getNome_estoque() {
+		return nome_estoque;
 	}
 
-	public void setNomeEstoque(String nomeEstoque) {
-		this.nomeEstoque = nomeEstoque;
+	public void setNome_estoque(String nome_estoque) {
+		this.nome_estoque = nome_estoque;
 	}
 
 	@Override
 	public String toString() {
-		return "Estoque [id=" + id + ", nomeEstoque=" + nomeEstoque + "]";
+		return "Estoque [id=" + id + ", nome_estoque=" + nome_estoque + "]";
 	}
 
-	public Estoque(Long id, String nomeEstoque) {
+	public Estoque() {
+	}
+
+	public Estoque(Long id, String nome_estoque) {
 		super();
 		this.id = id;
-		this.nomeEstoque = nomeEstoque;
+		this.nome_estoque = nome_estoque;
 	}
 
+	
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>e-Franquia</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -32,17 +32,17 @@
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+               <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
-                        Home
+                        Franquias
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Home 1</a>
+                            <a href="/estoque">Criar estoque</a>
                         </li>
                         <li>
-                            <a href="#">Home 2</a>
+                            <a href="/ver-estoque">Ver estoque</a>
                         </li>
                         <li>
                             <a href="#">Home 3</a>
@@ -127,27 +127,42 @@
 
             <h2> Franquia </h2>
             
-            <div class="container mt-3 ">
-				<div class="card container-form">
-					<div class="card-body">
-						<form th:action="@{/estoque}" method="post" >
-						
-							<div class="form-group">
-			    				<label class="text-center text-rosa"> Nome de sua franquia </label>
-			    				<input type="text" name="nome_estoque" id=”nome_estoque”
-			    				placeholder="digite o nome de sua franquia" class="form-control placeholder-text" />
-			  				</div>
-		
-							<div class="text-center">	
-								<a href="/home" class="btn btn-secondary"> Voltar</a>
-								<button type="submit" class="btn btn-rosa"> Cadastrar </button>	
-							</div>
-							
-						</form>
-					</div>
-				</div>
-			</div>
 	
+				        <div class="row">
+				            <div class="col-lg-7 mx-auto">
+				                <div class="card border-0 rounded shadow">
+				                    <div class="card-body p-5">
+				
+				                        <!-- Responsive table -->
+				                        <div class="table-responsive">
+				                            <table class="table m-0">
+				                                <thead>
+				                                    <tr>
+				                                        <th scope="col">Id Estoque</th>
+				                                        <th scope="col">Nome estoque</th>
+				                                        <th scope="col">Editar</th>
+				                                        <th scope="col">Remover</th>
+
+				                                    </tr>
+				                                </thead>
+				                                <tbody>
+				                                    <tr th:each="estoque: ${estoques}">
+				                                        <th scope="row" th:text="${estoque.id}"></th>
+														<th th:text="${estoque.nome_estoque}"></th>
+				                                        <td><button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button> </td>       
+				                                        <td><button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button> </td>
+				                                    </tr>
+				                                    
+
+				                                </tbody>
+				                            </table>
+				
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
+
             
             <div class="line"></div>
         </div>

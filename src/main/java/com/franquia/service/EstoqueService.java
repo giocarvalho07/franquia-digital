@@ -1,5 +1,6 @@
 package com.franquia.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.franquia.model.Estoque;
@@ -23,7 +24,7 @@ public class EstoqueService {
 		return estoqueRepository.findAll();
 	}
 	
-	public Estoque listarIdEstoque(Long id) {
+	public Estoque idEstoque(Long id) {
 		return estoqueRepository.findById(id).get();
 	}
 
