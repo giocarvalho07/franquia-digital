@@ -25,13 +25,13 @@ public class EstoqueController {
 	
 	@GetMapping("/estoque")
 	public String postEstoque() {
-		return "franqueador/criarEstoque";
+		return "franqueador/estoque/criarEstoque";
 	}
 	
 	@PostMapping("/estoque")
 	public ModelAndView postCriarEstoque(Estoque estoque) {
 		estoqueService.criarEstoque(estoque);
-		ModelAndView model = new ModelAndView("franqueador/criarEstoque");
+		ModelAndView model = new ModelAndView("franqueador/estoque/criarEstoque");
 		Iterable<Estoque> estoques = estoqueService.listarEstoque();
 		model.addObject("estoques", estoques);
 		model.addObject("mensagemCadastrada", "Estoque salvo com sucesso");
@@ -40,7 +40,7 @@ public class EstoqueController {
 	
 	@GetMapping("/ver-estoque")
 	public ModelAndView getEstoque() {
-		ModelAndView model = new ModelAndView("franqueador/estoque");
+		ModelAndView model = new ModelAndView("franqueador/estoque/estoque");
 		Iterable<Estoque> estoques = estoqueService.listarEstoque();
 		model.addObject("estoques", estoques);
 		return model;
@@ -59,7 +59,7 @@ public class EstoqueController {
 	
 	@GetMapping("/editar-estoque")
     public ModelAndView updateEditarLivro(@RequestParam Long id){
-    ModelAndView model = new ModelAndView("franqueador/editarEstoque");
+    ModelAndView model = new ModelAndView("franqueador/estoque/editarEstoque");
     Estoque estoque = estoqueService.idEstoque(id);
     model.addObject("estoque",  estoque);
     model.addObject("mensagemEditada", "Estoque será editado");

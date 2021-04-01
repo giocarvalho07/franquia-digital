@@ -35,7 +35,7 @@
                <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
-                        Franquias
+                        Estoque
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -47,33 +47,54 @@
 
                     </ul>
                 </li>
+                
                 <li>
-                    <a href="#">
-                        <i class="fas fa-briefcase"></i>
-                        About
-                    </a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-copy"></i>
-                        Pages
+                	<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-shipping-fast"></i>
+                        Marcas
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Page 1</a>
+                            <a href="/marca">Adicionar marca</a>
                         </li>
                         <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
+                            <a href="/ver-marca">Ver marca</a>
                         </li>
                     </ul>
                 </li>
+                
+                
                 <li>
-                    <a href="#">
-                        <i class="fas fa-image"></i>
-                        Portfolio
+                	<a href="#productSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-box-open"></i>
+                        Produtos
                     </a>
+                    <ul class="collapse list-unstyled" id="productSubmenu">
+                        <li>
+                            <a href="#">Adicionar produto</a>
+                        </li>
+                        <li>
+                            <a href="#">Ver produto</a>
+                        </li>
+                    </ul>
                 </li>
+                
+                 <li>
+                	<a href="#marketSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        Vendas
+                    </a>
+                    <ul class="collapse list-unstyled" id="marketSubmenu">
+                        <li>
+                            <a href="#">Adicionar venda</a>
+                        </li>
+                        <li>
+                            <a href="#">Ver venda</a>
+                        </li>
+                    </ul>
+                </li>
+                
+
                 <li>
                     <a href="#">
                         <i class="fas fa-question"></i>
@@ -83,14 +104,18 @@
                 <li>
                     <a href="#">
                         <i class="fas fa-paper-plane"></i>
-                        Contact
+                        Contato
                     </a>
                 </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">
+                    
+                    <i class="fas fa-download"></i>
+                    Termos de uso do App
+                    </a>
                 </li>
                 <li>
                     <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
@@ -122,73 +147,70 @@
                     </div>
                 </div>
             </nav>
-
-        <!-- Alert  -->
-			<div  id="mensagemApagada" class="alert alert-danger " role="alert" >
-				<span> Estoque removido com sucesso </span>	
+            
+            <!--   -->
+			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemCadastrada)}" >
+				<span th:text="${mensagemCadastrada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
-			  </button>  
+			  </button>
 			</div>
-
-	
-			
-            <h2> Franquia </h2>
             
+
+            <h2> Marca ou Fornecedor </h2>
+            
+            <div class="container mt-3 ">
+				<div class="card container-form">
+					<div class="card-body">
+
+						<form th:action="@{/marca}" method="post" >
+						
+							<div class="form-group">
+			    				<label class="text-center text-rosa"> Nome da marca ou do fronecedor</label>
+			    				<input type="text" name="nome_marca" id=”nome_marca”
+			    				placeholder="digite o nome da marca ou do fornecedor" class="form-control placeholder-text" />
+			  				</div>
+			  				
+			  				<div class="form-group">
+			    				<label class="text-center text-rosa"> Categoria da marca ou do fornecedor </label>
+			    				
+			    				<select class="form-control form-select form-select-lg mb-3 col s-12" 
+										aria-label="Default select example" name="categoria"  required>
+										<option selected value=""> Escolha a categoria </option>
+										
+			    						<option th:each="categoria: ${T(com.franquia.model.Categoria).values()}"
+			    							th:value="${categoria}" th:text="${categoria}"
+			    							class="form-control placeholder-text" type="text"></option>
+			    				</select>
+			  				</div>
+			  				
+			  				<div class="form-group">
+								<label class="text-center text-rosa">Escolha o estoque</label>
+								<select class="form-control form-select form-select-lg mb-3 col s-12" 
+											aria-label="Default select example" name="autor" 
+											th:field="${marca.estoque}" required>
+											<option selected value=""> Escolha o estoque </option>
+									                <option th:each="estoque: ${estoques}"
+									                        th:value="${estoque.id}"
+									                        th:text="${estoque.nome_estoque}">
+									        </option>
+								</select>
+							</div>
+			  				
+			  				
+		
+							<div class="text-center">	
+								<a href="/marca" class="btn btn-secondary"> Voltar</a>
+								<button type="submit" class="btn btn-rosa"> Cadastrar </button>	
+								<a href="/ver-marca" class="btn btn-light"> Fornecedores</a>
+							</div>
+							
+						</form>
+
+					</div>
+				</div>
+			</div>
 	
-				        <div class="row">
-				            <div class="col-lg-7 mx-auto">
-				                <div class="card border-0 rounded shadow">
-				                    <div class="card-body p-5">
-				
-				                        <!-- Responsive table -->
-				                        <div class="table-responsive">
-				                            <table class="table m-0">
-				                                <thead>
-				                                 	<tr>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="p-2 px-3 text-uppercase">Id estoque</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Nome estoque</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Editar </div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Remover</div>
-									                  </th>
-									                </tr>    
-				                                </thead>
-				                                <tbody>
-				                                    <tr th:each="estoque: ${estoques}">
-				                                        <th scope="row" th:text="${estoque.id}"></th>
-														<th th:text="${estoque.nome_estoque}"></th>
-				                                        <td>
-				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
-				                                        		data-target="#exampleModal" th:href="@{'/editar-estoque?id=' + ${estoque.id}}">
-				                                        		<i class="fa fa-edit"></i>
-				                                        	</a>
-				                                        </td>       
-				                                        <td>
-				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
-				                                        		data-placement="top" title="Delete" th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}">
-				                                        		<i class="fa fa-trash"></i>
-				                                        	</a>
-				                                        	
-				                                        </td>
-				                                    </tr>
-				                                    
-
-				                                </tbody>
-				                            </table>
-				
-				                        </div>
-				                    </div>
-				                </div>
-				            </div>
-				        </div>
-
             
             <div class="line"></div>
         </div>
@@ -206,21 +228,7 @@
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
-            
-
-            $('button#deleteAlert').on('click', function() {
-                if ($("div#mensagemApagada").attr("hidden")) {
-                    $("div#mensagemApagada").attr("hidden", false)
-                } else $("div#mensagemApagada").attr("hidden", true)
-            });
-            
         });
-        
-
-        
-
-        
-        
     </script>
 </body>
 

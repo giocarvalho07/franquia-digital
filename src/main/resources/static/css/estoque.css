@@ -90,6 +90,10 @@ h3.logotipo{
 	width: 150px;/* Faz a largura ficar igual a da largura da imagem de exemplo */
 	height: 150px;/* Faz a altura ficar igual a da altura da imagem de exemplo */
 }
+
+#text-small{
+	font-size: 9px;
+}
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
