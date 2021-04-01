@@ -124,72 +124,63 @@
             </nav>
 
         <!-- Alert  -->
-			<div  id="mensagemApagada" class="alert alert-danger " role="alert" >
-				<span> Estoque removido com sucesso </span>	
+			<div class="alert alert-warning" role="alert" th:if="${!#strings.isEmpty(mensagemEditada)}" >
+				<span th:text="${mensagemEditada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>  
 			</div>
 
-	
+        <!-- Modal  -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel"> Editar Franquia</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      
+			    </div>
+			  </div>
+			</div>			
 			
             <h2> Franquia </h2>
             
+				<div class="container mt-3 ">
+					<div class="card container-form">
+						<div class="card-body">
+							<div class="modal-body">
+			        
+						        <form th:action="@{/estoque}" method="post" th:object="${estoque}">
+						        	<div class="form-group">
+						        		<label for="id" class="text-center text-rosa"> Id estoque </label>
+										<span class="text-center text-light" th:text="${estoque.id}"></span>
+			                            <input type="hidden" th:field="*{id}"  />
+									 </div>
+						        
+						        
+												
+									<div class="form-group">
+									    <label class="text-center text-rosa"> Nome de sua franquia </label>
+									    <input type="text" th:field="*{nome_estoque}" placeholder="digite o nome de sua franquia" 
+									    class="form-control placeholder-text" />
+									 </div>
+								
+									<div class="text-center">	
+										<a href="/estoque" class="btn btn-secondary"> Voltar</a>
+										<button type="submit" class="btn btn-rosa"> Registrar </button>	
+										<a href="/ver-estoque" class="btn btn-light"> Estoque</a>
+									</div>
+								</form>
+						      </div>
+				
+						</div>
+					</div>
+				</div>
 	
-				        <div class="row">
-				            <div class="col-lg-7 mx-auto">
-				                <div class="card border-0 rounded shadow">
-				                    <div class="card-body p-5">
-				
-				                        <!-- Responsive table -->
-				                        <div class="table-responsive">
-				                            <table class="table m-0">
-				                                <thead>
-				                                 	<tr>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="p-2 px-3 text-uppercase">Id estoque</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Nome estoque</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Editar </div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Remover</div>
-									                  </th>
-									                </tr>    
-				                                </thead>
-				                                <tbody>
-				                                    <tr th:each="estoque: ${estoques}">
-				                                        <th scope="row" th:text="${estoque.id}"></th>
-														<th th:text="${estoque.nome_estoque}"></th>
-				                                        <td>
-				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
-				                                        		data-target="#exampleModal" th:href="@{'/editar-estoque?id=' + ${estoque.id}}">
-				                                        		<i class="fa fa-edit"></i>
-				                                        	</a>
-				                                        </td>       
-				                                        <td>
-				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
-				                                        		data-placement="top" title="Delete" th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}">
-				                                        		<i class="fa fa-trash"></i>
-				                                        	</a>
-				                                        	
-				                                        </td>
-				                                    </tr>
-				                                    
-
-				                                </tbody>
-				                            </table>
-				
-				                        </div>
-				                    </div>
-				                </div>
-				            </div>
-				        </div>
-
-            
+     
             <div class="line"></div>
         </div>
     </div>
@@ -206,19 +197,7 @@
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
-            
-
-            $('button#deleteAlert').on('click', function() {
-                if ($("div#mensagemApagada").attr("hidden")) {
-                    $("div#mensagemApagada").attr("hidden", false)
-                } else $("div#mensagemApagada").attr("hidden", true)
-            });
-            
         });
-        
-
-        
-
         
         
     </script>

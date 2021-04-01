@@ -44,9 +44,6 @@
                         <li>
                             <a href="/ver-estoque">Ver estoque</a>
                         </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
                     </ul>
                 </li>
                 <li>
@@ -125,8 +122,8 @@
                 </div>
             </nav>
             
-			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagem)}" >
-				<span th:text="${mensagem}"> Estoque salvo com sucesso </span>
+			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemCadastrada)}" >
+				<span th:text="${mensagemCadastrada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>
@@ -148,8 +145,9 @@
 			  				</div>
 		
 							<div class="text-center">	
-								<a href="/home" class="btn btn-secondary"> Voltar</a>
+								<a href="/estoque" class="btn btn-secondary"> Voltar</a>
 								<button type="submit" class="btn btn-rosa"> Cadastrar </button>	
+								<a href="/ver-estoque" class="btn btn-light"> Estoque</a>
 							</div>
 							
 						</form>
