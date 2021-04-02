@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.franquia.model.Estoque;
@@ -44,8 +45,6 @@ public class MarcaController {
 		return model;
 	}
 	
-	
-	
 	@GetMapping("/ver-marca")
 	public ModelAndView getMarca() {
 		ModelAndView model = new ModelAndView("franqueador/marca/marca");
@@ -53,5 +52,24 @@ public class MarcaController {
 		model.addObject("marcas", marcas);
 		return model;
 	}
+	
+
+    @GetMapping("/editar-marca")
+    public ModelAndView editarAluno(@RequestParam Long id) {
+        ModelAndView model = new ModelAndView("franqueador/marca/editarMarca");
+        Marca marca = marcaService.idMarca(id);
+        model.addObject("marca",  marca);
+        model.addObject("estoques", estoqueService.listarEstoque());
+        model.addObject("mensagemEditada", "Marca será editada");
+        return model;
+    }
+    
+    
+    @GetMapping("/deletar-marca") 
+    public String removerAluno(@RequestParam Long id){
+        Marca marca = marcaService.idMarca(id);
+        marcaService.deletarMarca(marca);
+        return "redirect:/ver-marca";
+    }
 
 }

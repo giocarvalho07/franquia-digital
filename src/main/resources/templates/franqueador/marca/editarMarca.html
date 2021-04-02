@@ -33,9 +33,10 @@
 
             <ul class="list-unstyled components">
                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" id="#text-small" aria-expanded="false" class="dropdown-toggle ">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
-                       Estoque
+                       
+                        Estoque
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -49,7 +50,7 @@
                 </li>
                 
                 <li>
-                	<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-small">
+                	<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-shipping-fast"></i>
                         Marcas
                     </a>
@@ -148,92 +149,81 @@
                 </div>
             </nav>
 
-        <!-- Alert  
-			<div  id="mensagemApagada" class="alert alert-danger " role="alert" >
-				<span> Estoque removido com sucesso </span>	
+        <!-- Alert  -->
+			<div class="alert alert-warning" role="alert" th:if="${!#strings.isEmpty(mensagemEditada)}" >
+				<span th:text="${mensagemEditada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>  
 			</div>
-		-->
-	
+
+        
 			
-            <h2> Marca ou Fornecedor </h2>
+            <h2> Franquia ou Estoque </h2>
             
+				<div class="container mt-3 ">
+					<div class="card container-form">
+						<div class="card-body">
+							<div class="modal-body">
+			        
+						        <form th:action="@{/marca}" method="post" th:object="${marca}">
+						        	<div class="form-group">
+						        		<label for="id" class="text-center text-rosa"> Id estoque </label>
+										<span class="text-center text-light" th:text="${marca.id}"></span>
+			                            <input type="hidden" th:field="*{id}"  />
+									 </div>
+						        
+						        
+												
+									<div class="form-group">
+									    <label class="text-center text-rosa"> Nome de sua franquia ou estoque </label>
+									    <input type="text" th:field="*{nome_marca}" placeholder="digite o nome de sua franquia ou estoque" 
+									    class="form-control placeholder-text" />
+									 </div>
+									 
+									 
+				  				<div class="form-group">
+				    				<label class="text-center text-rosa"> Categoria da marca ou do fornecedor </label>
+				    				
+				    				<select class="form-control form-select form-select-lg mb-3 col s-12" 
+											aria-label="Default select example" name="categoria" th:field="*{categoria}" required>
+											<option selected value=""> Escolha a categoria </option>
+											
+				    						<option th:each="categoria: ${T(com.franquia.model.Categoria).values()}"
+				    							th:value="${categoria}" th:text="${categoria}"
+				    							class="form-control placeholder-text" type="text"></option>
+				    				</select>
+				  				</div>			
+				  				
+				  				
+				  				
+								<div class="form-group">
+									<label class="text-center text-rosa">Escolha o estoque</label>
+									<select class="form-control form-select form-select-lg mb-3 col s-12" 
+									aria-label="Default select example" 
+									th:field="${marca.estoque}" required>
+										<option selected value=""> Escolha o estoque </option>
+						                <option th:each="estoque: ${estoques}"
+						                        th:value="${estoque.id}"
+						                        th:text="${estoque.nome_estoque }">
+						                </option>
+									</select>
+					  			</div>
+										 
+								
+									<div class="text-center ">	
+										<a href="/marca" class="btn btn-secondary"> Voltar</a>
+										<button type="submit" class="btn btn-rosa"> Registrar </button>	
+										<a href="/ver-marca" class="btn btn-light"> Marca</a>
+									</div>
+								</form>
+						      </div>
+				
+						</div>
+					</div>
+				</div>
 	
-				        <div class="row">
-				            <div class="col-lg-7 mx-auto">
-				                <div class="card border-0 rounded shadow">
-				                    <div class="card-body p-10">
-				
-				                        <!-- Responsive table -->
-				                        <div class="table-responsive">
-				                            <table class="table m-0">
-				                                <thead>
-				                                 	<tr>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="p-2 px-3 text-uppercase">Id marca</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Nome marca</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Categoria marca</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Estoque</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Editar </div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Remover</div>
-									                  </th>
-									                </tr>    
-				                                </thead>
-				                                <tbody>
-				                                    <tr th:each="marca: ${marcas}">
-				                                        <th scope="row" th:text="${marca.id}"></th>
-														<th th:text="${marca.nome_marca}"></th>
-														<th th:text="${marca.categoria}"></th>
-														<th th:text="${marca.estoque?.nome_estoque}"></th>
-														 <!-- editar apagar -->
-				                                        <td>
-				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
-				                                        		data-target="#exampleModal" th:href="@{'editar-marca?id=' 
-				                                        		+ ${marca.id}}"> 
-				                                        		<!-- editar apagar 
-				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
-				                                        		-->
-				                                        		
-				                                        		<i class="fa fa-edit"></i>
-				                                        	</a>
-				                                        </td>       
-				                                        <td>
-				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
-				                                        		data-placement="top" title="Delete" th:href="@{'deletar-marca?id=' 
-				                                        		+ ${marca.id}}" >
-				                                        		<!-- 
-				                                        		th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}"
-				                                        		 -->
-				                                        		<i class="fa fa-trash"></i>
-				                                        	</a>
-				                                        	
-				                                        </td>
-				                                        
-				                                    </tr>
-				                                    
-
-				                                </tbody>
-				                            </table>
-				
-				                        </div>
-				                    </div>
-				                </div>
-				            </div>
-				        </div>
-
-            
+     
             <div class="line"></div>
         </div>
     </div>
@@ -246,21 +236,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
-    
-    
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
-            
-
-           
-            
         });
-        
-
-        
-
         
         
     </script>
