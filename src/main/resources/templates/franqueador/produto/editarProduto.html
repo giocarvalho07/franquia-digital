@@ -35,6 +35,7 @@
                <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
+                       
                         Estoque
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -47,7 +48,8 @@
 
                     </ul>
                 </li>
-                
+
+
                 <li>
                 	<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-small">
                         <i class="fas fa-shipping-fast"></i>
@@ -114,7 +116,7 @@
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">
                     
                     <i class="fas fa-download"></i>
-                    Termos de uso do App
+                     Termos de uso do App
                     </a>
                 </li>
                 <li>
@@ -147,77 +149,81 @@
                     </div>
                 </div>
             </nav>
-            
-                <!-- Page Content              -->
-			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemCadastrada)}" >
-				<span th:text="${mensagemCadastrada}">  </span>
+
+        <!-- Alert  -->
+			<div class="alert alert-warning" role="alert" th:if="${!#strings.isEmpty(mensagemEditada)}" >
+				<span th:text="${mensagemEditada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
-			  </button>
+			  </button>  
 			</div>
+
+        
 			
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p id="valor"></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-            <h2>  Franquia ou Estoque </h2>
+            <h2> Franquia ou Estoque </h2>
             
-            <div class="container mt-3 ">
-				<div class="card container-form">
-					<div class="card-body">
-
-						<form th:action="@{/estoque}" method="post" >
-						
-							<div class="form-group">
-			    				<label class="text-center text-rosa"> Nome de sua franquia ou estoque </label>
-			    				<input type="text" name="nome_estoque" id=”nome_estoque”
-			    				placeholder="digite o nome de sua franquia ou estoque" class="form-control placeholder-text" />
-			  				</div>
-			  				
-			  				<div class="form-group">
-			    				<label class="text-center text-rosa"> Gerar hash do estoque </label>
-			    				
-			    				<button onclick="alertar()" type="button" class="btn btn-rosa" data-toggle="modal" data-target="#myModal">Gerar </button>
-			  				</div>
-		
-							<div class="text-center">	
-								<a href="/estoque" class="btn btn-secondary"> Voltar</a>
-								<button type="submit" class="btn btn-rosa"> Cadastrar </button>	
-								<a href="/ver-estoque" class="btn btn-light"> Estoque</a>
-							</div>
-							
-						</form>
-
+				<div class="container mt-3 ">
+					<div class="card container-form">
+						<div class="card-body">
+							<div class="modal-body">
+			        
+						        <form th:action="@{/produto}" method="post" th:object="${produto}">
+						        	<div class="form-group">
+						        		<label for="id" class="text-center text-rosa"> Id produto </label>
+										<span class="text-center text-light" th:text="${produto.id}"></span>
+			                            <input type="hidden" th:field="*{id}"  />
+									 </div>
+						        
+						        												
+									<div class="form-group">
+									    <label class="text-center text-rosa"> Nome do produto </label>
+									    <input type="text" th:field="*{nome_produto}" placeholder="digite o nome do produto" 
+									    class="form-control placeholder-text" />
+									 </div>
+									 
+									 <div class="form-group">
+									    <label class="text-center text-rosa"> Quantidade do produto </label>
+									    <input type="text" th:field="*{quantidade_produto}" placeholder="digite a quantidade do produto" 
+									    class="form-control placeholder-text" />
+									 </div>									  				
+				  				
+				  				
+									<div class="form-group">
+										<label class="text-center text-rosa">Fornecedor</label>
+										<select class="form-control form-select form-select-lg mb-3 col s-12" 
+										aria-label="Default select example" 
+										th:field="${produto.marca}" required>
+											<option selected value=""> Escolha o fornecedor </option>
+							                <option th:each="marca: ${marcas}"
+							                        th:value="${marca.id}"
+							                        th:text="${marca.nome_marca}">
+							                </option>
+										</select>
+						  			</div>
+										 
+										 
+									 <div class="form-group">
+									    <label class="text-center text-rosa"> Preço do produto </label>
+									    <input type="text" th:field="*{preco_produto}" placeholder="digite o preço do produto" 
+									    class="form-control placeholder-text" />
+									 </div>												 
+								
+									<div class="text-center ">	
+										<a href="/produto" class="btn btn-secondary"> Voltar</a>
+										<button type="submit" class="btn btn-rosa"> Registrar </button>	
+										<a href="/ver-produto" class="btn btn-light"> Produto </a>
+									</div>
+								</form>
+						      </div>
+				
+						</div>
 					</div>
 				</div>
-			</div>
 	
-            
+     
             <div class="line"></div>
         </div>
     </div>
-
-	
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -226,8 +232,6 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-	<script src="js/m.js"></script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -235,15 +239,7 @@
             });
         });
         
-        $('#myModal').modal({
-        	var txt = "ACA";
-          	var hash = Math.floor(Math.random() * 1500000000);
-          	
-          	alert(txt + hash);
-          	
-          	var hashFinal = document.getElementById('#valor').value = (txt + hash);
-        	})
-
+        
     </script>
 </body>
 

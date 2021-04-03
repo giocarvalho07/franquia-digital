@@ -1,6 +1,7 @@
 package com.franquia.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.ManyToAny;
 
@@ -70,21 +72,36 @@ public class Marca implements Serializable{
 		this.estoque = estoque;
 	}
 
-	public Marca(Long id, String nome_marca, Categoria categoria, Estoque estoque) {
+	
+	// produto
+	
+	@OneToMany
+	@JoinColumn(name = "id_marca")
+	public List<Produto> produtos;
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
+	public Marca(Long id, String nome_marca, Categoria categoria, Estoque estoque, List<Produto> produtos) {
 		super();
 		this.id = id;
 		this.nome_marca = nome_marca;
 		this.categoria = categoria;
 		this.estoque = estoque;
+		this.produtos = produtos;
 	}
 
 	@Override
 	public String toString() {
-		return "Marca [id=" + id + ", nome_marca=" + nome_marca + ", categoria=" + categoria + ", estoque="
-				+ estoque.getNome_estoque() + "]";
+		return "Marca [id=" + id + ", nome_marca=" + nome_marca + ", categoria=" + categoria +
+				", estoque=" + estoque.getNome_estoque() + ", produtos=" + produtos + "]";
 	}
 	
 	
-
 	
 }

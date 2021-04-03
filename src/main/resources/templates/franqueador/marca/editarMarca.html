@@ -48,18 +48,19 @@
 
                     </ul>
                 </li>
-                
+
+
                 <li>
-                	<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                	<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-small">
                         <i class="fas fa-shipping-fast"></i>
-                        Marcas
+                        Fornecedor
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="/marca">Adicionar marca</a>
+                            <a href="/marca">Adicionar fornecedor</a>
                         </li>
                         <li>
-                            <a href="/ver-marca">Ver marca</a>
+                            <a href="/ver-marca">Ver fornecedor</a>
                         </li>
                     </ul>
                 </li>
@@ -72,10 +73,10 @@
                     </a>
                     <ul class="collapse list-unstyled" id="productSubmenu">
                         <li>
-                            <a href="#">Adicionar produto</a>
+                            <a href="/produto">Adicionar produto</a>
                         </li>
                         <li>
-                            <a href="#">Ver produto</a>
+                            <a href="/ver-produto">Ver produto</a>
                         </li>
                     </ul>
                 </li>
@@ -176,8 +177,8 @@
 						        
 												
 									<div class="form-group">
-									    <label class="text-center text-rosa"> Nome de sua franquia ou estoque </label>
-									    <input type="text" th:field="*{nome_marca}" placeholder="digite o nome de sua franquia ou estoque" 
+									    <label class="text-center text-rosa"> Nome da franquia ou estoque </label>
+									    <input type="text" th:field="*{nome_marca}" placeholder="digite o nome da franquia ou estoque" 
 									    class="form-control placeholder-text" />
 									 </div>
 									 

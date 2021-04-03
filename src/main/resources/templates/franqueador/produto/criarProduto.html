@@ -148,62 +148,63 @@
                 </div>
             </nav>
             
-                <!-- Page Content              -->
+            <!--   -->
 			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemCadastrada)}" >
 				<span th:text="${mensagemCadastrada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>
 			</div>
-			
+            
 
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p id="valor"></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-            <h2>  Franquia ou Estoque </h2>
+            <h2> Produtos </h2>
             
             <div class="container mt-3 ">
 				<div class="card container-form">
 					<div class="card-body">
 
-						<form th:action="@{/estoque}" method="post" >
+						<form th:action="@{/produto}" method="post" >
 						
 							<div class="form-group">
-			    				<label class="text-center text-rosa"> Nome de sua franquia ou estoque </label>
-			    				<input type="text" name="nome_estoque" id=”nome_estoque”
-			    				placeholder="digite o nome de sua franquia ou estoque" class="form-control placeholder-text" />
+			    				<label class="text-center text-rosa"> Nome do produto</label>
+			    				<input type="text" name="nome_produto" id=”nome_produto”
+			    				placeholder="digite o nome do produto" class="form-control placeholder-text" />
 			  				</div>
 			  				
 			  				<div class="form-group">
-			    				<label class="text-center text-rosa"> Gerar hash do estoque </label>
-			    				
-			    				<button onclick="alertar()" type="button" class="btn btn-rosa" data-toggle="modal" data-target="#myModal">Gerar </button>
+			    				<label class="text-center text-rosa"> Quantidade do produto</label>
+			    				<input type="number" name="quantidade_produto" id=”quantidade_produto”
+			    				placeholder="digite a quantidade do produto" class="form-control placeholder-text" />
 			  				</div>
+			  				
+			  				
+			  				<div class="form-group">
+								<label class="text-center text-rosa">Escolha o fornecedor</label>
+								<select class="form-control form-select form-select-lg mb-3 col s-12" 
+											aria-label="Default select example" name="marca" 
+											th:field="${produto.marca}" required>
+											<option selected value=""> Escolha o estoque </option>
+									                <option th:each="marca: ${marcas}"
+									                        th:value="${marca.id}"
+									                        th:text="${marca.nome_marca}">
+									        </option>
+								</select>
+							</div>
+							
+			  				
+			  				<div class="form-group">
+			    				<label class="text-center text-rosa"> Preço unitário do produto</label>
+			    				<input type="text" name="preco_produto" id=”preco_produto”
+			    				placeholder="digite o preco do produto" class="form-control placeholder-text" />
+			  				</div>
+			  				
+			  				
+			  						  				
 		
 							<div class="text-center">	
-								<a href="/estoque" class="btn btn-secondary"> Voltar</a>
+								<a href="/produto" class="btn btn-secondary"> Voltar</a>
 								<button type="submit" class="btn btn-rosa"> Cadastrar </button>	
-								<a href="/ver-estoque" class="btn btn-light"> Estoque</a>
+								<a href="/ver-produto" class="btn btn-light"> Produtos </a>
 							</div>
 							
 						</form>
@@ -217,8 +218,6 @@
         </div>
     </div>
 
-	
-
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
@@ -226,7 +225,7 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-	<script src="js/m.js"></script>
+    <script src="js/produto.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -234,16 +233,6 @@
                 $('#sidebar').toggleClass('active');
             });
         });
-        
-        $('#myModal').modal({
-        	var txt = "ACA";
-          	var hash = Math.floor(Math.random() * 1500000000);
-          	
-          	alert(txt + hash);
-          	
-          	var hashFinal = document.getElementById('#valor').value = (txt + hash);
-        	})
-
     </script>
 </body>
 

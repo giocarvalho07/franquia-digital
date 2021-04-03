@@ -28,6 +28,7 @@ public class Estoque implements Serializable{
 	@JoinColumn(name = "id_estoque")
 	private List<Marca> marcas;
 	
+	
 	public Estoque() {
 	}
 
@@ -46,7 +47,8 @@ public class Estoque implements Serializable{
 	public void setNome_estoque(String nome_estoque) {
 		this.nome_estoque = nome_estoque;
 	}
-
+	
+	
 
 	// get set do is_estoque
 	public List<Marca> getMarcas() {
@@ -57,6 +59,12 @@ public class Estoque implements Serializable{
 		this.marcas = marcas;
 	}
 
+	@Override
+	public String toString() {
+		return "Estoque [id=" + id + ", nome_estoque=" + nome_estoque + ", marcas=" + marcas +
+			"]";
+	}
+
 	public Estoque(Long id, String nome_estoque, List<Marca> marcas) {
 		super();
 		this.id = id;
@@ -64,11 +72,5 @@ public class Estoque implements Serializable{
 		this.marcas = marcas;
 	}
 
-	@Override
-	public String toString() {
-		return "Estoque [id=" + id + ", nome_estoque=" + nome_estoque + ", marcas=" + marcas + "]";
-	}
-	
-	
-	
+
 }

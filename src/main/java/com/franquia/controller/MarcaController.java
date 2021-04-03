@@ -29,8 +29,7 @@ public class MarcaController {
 		model.addObject("estoques",estoqueService.listarEstoque());
 		return model;
 	}
-	
-	
+
 	
 	@PostMapping("/marca")
 	public ModelAndView postCriarMarca(Marca marca, Estoque estoque) {
@@ -55,7 +54,7 @@ public class MarcaController {
 	
 
     @GetMapping("/editar-marca")
-    public ModelAndView editarAluno(@RequestParam Long id) {
+    public ModelAndView editarMarca(@RequestParam Long id) {
         ModelAndView model = new ModelAndView("franqueador/marca/editarMarca");
         Marca marca = marcaService.idMarca(id);
         model.addObject("marca",  marca);
