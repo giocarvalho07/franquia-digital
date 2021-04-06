@@ -86,10 +86,10 @@
                     </a>
                     <ul class="collapse list-unstyled" id="marketSubmenu">
                         <li>
-                            <a href="#">Adicionar venda</a>
+                            <a href="/venda">Adicionar venda</a>
                         </li>
                         <li>
-                            <a href="#">Ver venda</a>
+                            <a href="/ver-venda">Ver venda</a>
                         </li>
                     </ul>
                 </li>
@@ -162,7 +162,7 @@
             
 	
 				        <div class="row">
-				            <div class="col-lg-7 mx-auto">
+				            <div class="col-lg-12 mx-auto">
 				                <div class="card border-0 rounded shadow">
 				                    <div class="card-body p-11">
 				
@@ -196,11 +196,11 @@
 				                                </thead>
 				                                <tbody>
 				                                    <tr th:each="produto: ${produtos}">
-				                                        <th scope="row" th:text="${produto.id}"></th>
+				                                        <th class="text-center" scope="row" th:text="${produto.id}"></th>
 														<th th:text="${produto.nome_produto}"></th>
-														<th th:text="${produto.quantidade_produto}"></th>
+														<th class="text-center" th:text="${produto.quantidade_produto}"></th>
 														<th th:text="${produto.marca?.nome_marca}"></th>
-														<th th:text="${produto.preco_produto}"></th>
+														<th class="text-center"  th:text="${produto.preco_produto}"></th>
 														 <!-- editar apagar -->
 				                                        <td>
 				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 

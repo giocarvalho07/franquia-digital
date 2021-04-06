@@ -17,7 +17,5 @@ public enum Categoria {
 	private Categoria (String categoria) {
 		this.categoria = categoria;
 	}
-	
-
 
 }

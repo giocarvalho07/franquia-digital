@@ -46,7 +46,7 @@ public class EstoqueController {
 		return model;
 	}
 	
-	@RequestMapping("/deletar-estoque")
+	@GetMapping("/deletar-estoque")
 	public ModelAndView deleteEstoque(Long id) {
 		Estoque estoque = estoqueService.idEstoque(id);
 		estoqueService.deletarEstoque(estoque);

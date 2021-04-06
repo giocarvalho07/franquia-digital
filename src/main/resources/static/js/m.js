@@ -9,3 +9,8 @@
   	
   	var hashFinal = document.getElementById('#valor').value = (txt + hash);
   } 
+  
+
+
+  
+ 

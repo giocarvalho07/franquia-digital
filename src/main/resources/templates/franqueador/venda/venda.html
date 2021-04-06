@@ -33,9 +33,9 @@
 
             <ul class="list-unstyled components">
                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#homeSubmenu" data-toggle="collapse" id="#text-small" aria-expanded="false" class="dropdown-toggle ">
                         <i class="fas fa-home"></i>
-                        Estoque
+                       Estoque
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -114,7 +114,7 @@
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">
                     
                     <i class="fas fa-download"></i>
-                    Termos de uso do App
+                     Termos de uso do App
                     </a>
                 </li>
                 <li>
@@ -147,17 +147,18 @@
                     </div>
                 </div>
             </nav>
-            
-                <!-- Page Content              -->
-			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemCadastrada)}" >
-				<span th:text="${mensagemCadastrada}">  </span>
+
+        <!-- Alert  
+			<div  id="mensagemApagada" class="alert alert-danger " role="alert" >
+				<span> Estoque removido com sucesso </span>	
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
-			  </button>
+			  </button>  
 			</div>
+		-->
+	
 			
-
-            <h2> Franquia ou Estoque </h2>
+            <h2> Vendas </h2>
             
 	
 				        <div class="row">
@@ -168,38 +169,72 @@
 				                        <!-- Responsive table -->
 				                        <div class="table-responsive">
 				                            <table class="table m-0">
+
 				                                <thead>
 				                                 	<tr>
 									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="p-2 px-3 text-center  text-uppercase">Id estoque</div>
+									                    <div class="p-2 px-3 text-center text-uppercase">Id venda</div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Nome estoque</div>
+									                    <div class="py-2 text-uppercase"> Data venda </div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Editar </div>
+									                    <div class="py-2 text-center text-uppercase"> Forma de pagamento </div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Remover</div>
+									                    <div class="py-2 text-uppercase"> Editar </div>
 									                  </th>
+									                  <th scope="col" class="border-0 bg-light">
+									                    <div class="py-2 text-uppercase"> Remover </div>
+									                  </th>
+									                  <th scope="col" class="border-0 bg-light">
+									                    <div class="py-2 text-uppercase"> Add produtos </div>
+									                  </th>
+								
 									                </tr>    
 				                                </thead>
+
 				                                <tbody>
-				                                    <tr th:each="estoque: ${estoques}">
-				                                        <th class="text-center" th:text="${estoque.id}"></th>
-														<th th:text="${estoque.nome_estoque}"></th>
+				                                    <tr th:each="venda: ${vendas}">
+				                                        <th class="text-center" scope="row" th:text="${venda.codigo_venda}"></th>
+														<th th:text="${venda.data_venda}"></th>
+														<th class="text-center" th:text="${venda.forma_pagamento}"></th>
+														
+														 <!-- editar apagar -->
 				                                        <td>
 				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
-				                                        		data-target="#exampleModal" th:href="@{'/editar-estoque?id=' + ${estoque.id}}">
+				                                        		data-target="#exampleModal" th:href="@{'editar-venda?codigo_venda=' + ${venda.codigo_venda}}"> 
+				                                        		<!-- editar apagar 
+				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
+				                                        		-->
+				                                        		
 				                                        		<i class="fa fa-edit"></i>
 				                                        	</a>
 				                                        </td>       
 				                                        <td>
 				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
-				                                        		data-placement="top" title="Delete"  th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}">
+				                                        		data-placement="top" title="Delete" >
+				                                        		<!-- 
+				                                        		th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}"
+				                                        		 -->
 				                                        		<i class="fa fa-trash"></i>
 				                                        	</a>
+				                                        	
 				                                        </td>
+				                                        
+				                                        <td>
+				                                        	<a class="btn btn-primary btn-sm rounded-0 " type="button" data-toggle="tooltip" 
+				                                        		data-placement="top" title="Venda" th:href="@{'/adicionar-produto-venda?codigo_venda=' + ${venda.codigo_venda}}" >
+				                                        		<!-- 
+				                                        		th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}"
+				                                        		 -->
+				                                        		
+				                                        		<i class="fa fa-cart-plus"></i> 
+				                                        		
+				                                        	</a>
+				                                        	
+				                                        </td>
+				                                        
 				                                    </tr>
 				                                    
 
@@ -224,6 +259,8 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
+	<script src="js/m.js"></script>
+
     <script type="text/javascript">
     
     
@@ -231,17 +268,8 @@
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
+
             
-
-           
-            
-        });
-        
-
-        
-
-        
-        
     </script>
 </body>
 

@@ -3,6 +3,7 @@ package com.franquia.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,7 +32,7 @@ public class ProdutoController {
 	}
 	
 	@PostMapping("/produto")
-	public ModelAndView postCriarProduto(Produto produto, Marca marca) {
+	public String postCriarProduto( @ModelAttribute Produto produto, Marca marca) {
 		marcaService.criarMarca(marca);
 		produtoService.criarProduto(produto);
 		ModelAndView model = new ModelAndView("franqueador/produto/criarProduto");
@@ -39,8 +40,8 @@ public class ProdutoController {
 		Iterable<Produto> produtos = produtoService.listarProduto();
 		model.addObject("produtos", produtos);
 		model.addObject("marcas", marcas);
-		model.addObject("mensagemCadastrada", "Marca adicionada com sucesso");
-		return model;
+		model.addObject("mensagemCadastrada", "Produto adicionada com sucesso");
+		return "redirect:/ver-produto";
 	}
 	
 	@GetMapping("ver-produto")

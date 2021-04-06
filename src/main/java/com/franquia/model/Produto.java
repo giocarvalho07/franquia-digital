@@ -2,14 +2,20 @@ package com.franquia.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.ManyToAny;
 import org.springframework.format.annotation.NumberFormat;
 
 @Entity
@@ -79,27 +85,47 @@ public class Produto implements Serializable{
 		this.preco_produto = preco_produto;
 	}
 	
-	
+
 
 
 
 	@Override
 	public String toString() {
 		return "Produto [id=" + id + ", nome_produto=" + nome_produto + ", quantidade_produto=" + quantidade_produto
-				+ ", marca=" + marca.getNome_marca() + ", preco_produto=" + preco_produto + "]";
+				+ ", marca=" + marca.getNome_marca() + ", preco_produto=" + preco_produto + ", vendas=" + vendas + "]";
 	}
 
-	public Produto(Long id, String nome_produto, 
-			int quantidade_produto, Marca marca, BigDecimal preco_produto) {
+	public Produto(Long id, String nome_produto, int quantidade_produto, Marca marca, BigDecimal preco_produto,
+			List<Venda> vendas) {
 		super();
 		this.id = id;
 		this.nome_produto = nome_produto;
 		this.quantidade_produto = quantidade_produto;
 		this.marca = marca;
 		this.preco_produto = preco_produto;
-		
+		this.vendas = vendas;
 	}
 
+
+
+	// vendas
+	@ManyToMany
+	@JoinTable(
+			name = "venda_produtos",
+			uniqueConstraints = @UniqueConstraint(columnNames = {"id_produto","id_venda"}),
+			joinColumns = @JoinColumn(name = "id_produto"),
+			inverseJoinColumns = @JoinColumn(name = "id_venda")
+			)
+	private List<Venda> vendas;
+
+
+	public List<Venda> getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
+	}
 
 	
 	
