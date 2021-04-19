@@ -64,7 +64,25 @@ public class Venda implements Serializable{
 		this.forma_pagamento = forma_pagamento;
 	}
 
-	
+
+	// vendas
+	@ManyToMany
+	@JoinTable(
+			name = "venda_produtos",
+			uniqueConstraints = @UniqueConstraint(columnNames = {"id_produto","id_venda"}),
+			joinColumns = @JoinColumn(name = "id_venda"),
+			inverseJoinColumns = @JoinColumn(name = "id_produto")
+			)
+	private List<Produto> produtos;
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
 
 
 	
@@ -86,24 +104,6 @@ public class Venda implements Serializable{
 
 
 
-
-	// vendas
-	@ManyToMany
-	@JoinTable(
-			name = "venda_produtos",
-			uniqueConstraints = @UniqueConstraint(columnNames = {"id_produto","id_venda"}),
-			joinColumns = @JoinColumn(name = "id_venda"),
-			inverseJoinColumns = @JoinColumn(name = "id_produto")
-			)
-	private List<Produto> produtos;
-
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
 
 
 }

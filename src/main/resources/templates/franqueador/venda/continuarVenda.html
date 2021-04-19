@@ -35,6 +35,7 @@
                <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
+                       
                         Estoque
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -47,7 +48,8 @@
 
                     </ul>
                 </li>
-                
+
+
                 <li>
                 	<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-small">
                         <i class="fas fa-shipping-fast"></i>
@@ -89,7 +91,7 @@
                             <a href="/venda">Adicionar venda</a>
                         </li>
                         <li>
-                            <a href="#">Ver venda</a>
+                            <a href="/ver-venda">Ver venda</a>
                         </li>
                     </ul>
                 </li>
@@ -114,7 +116,7 @@
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">
                     
                     <i class="fas fa-download"></i>
-                    Termos de uso do App
+                     Termos de uso do App
                     </a>
                 </li>
                 <li>
@@ -147,64 +149,28 @@
                     </div>
                 </div>
             </nav>
-            
-            <!--   -->
-			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemCadastrada)}" >
-				<span th:text="${mensagemCadastrada}">  </span>
+
+        <!-- Alert  -->
+			<div class="alert alert-warning" role="alert" th:if="${!#strings.isEmpty(mensagemEditada)}" >
+				<span th:text="${mensagemEditada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
-			  </button>
+			  </button>  
 			</div>
-            
+
+        
+
+
+
 
             <h2> Vendas </h2>
-            
-            
-						<div class="row">
-				            <div class="col-lg-12 mx-auto">
-				                <div class="card border-0 rounded shadow">
-				                    <div class="card-body p-11">
-		   	
-				                        <!-- Responsive table -->
-				                        <div class="table-responsive">
-				                            <table class="table m-0">
-				                                <thead>
-				                                 	<tr>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="p-2 px-3 text-uppercase text-center">Id venda</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase text-center">Data venda</div>
-									                  </th>
-													  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase text-center">Forma pagamento</div>
-									                  </th>
-									                </tr>    
-				                                </thead>
-				                                <tbody>
-				                                    <tr th:each="produto : ${venda.produtos}">
-				                                        <th class="text-center" th:text="${venda.codigo_venda}"></th>
-														<th class="text-center" th:text="${venda.data_venda}"></th>
-														<th class="text-center" th:text="${venda.forma_pagamento}"></th>
-														 <!-- editar apagar -->
-				                                    </tr>
-				                                </tbody>
-				                            </table>
-										</div>
-				                      </div>		   	
-		   							</div>
-		   						</div>   
-		   						
-		   						
-
-		   						         
             
             <div class="container mt-3 ">
 				<div class="card container-form">
 					<div class="card-body">
 
-						<form th:action="@{/criar-produto-venda(codigo_venda=${venda.codigo_venda})}" method="post" >
-						
+						<form th:action="@{/adicionar-produto-venda(codigo_venda=${venda.codigo_venda})}" method="post"  >
+	
 
 			  				<div class="form-group">
 							<label class="text-center text-rosa"> Adicionar produtos </label>
@@ -278,6 +244,7 @@
             <div class="line"></div>
         </div>
     </div>
+	
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -286,18 +253,15 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-    <script src="js/m.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
-            
-            $(document).ready(function() {
-                $('#example').DataTable();
-              });
         });
+
+        
     </script>
 </body>
 

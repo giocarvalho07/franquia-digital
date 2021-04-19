@@ -60,8 +60,19 @@ public class VendaController {
 	}
 	
 	
-	@GetMapping("/adicionar-produto-venda")
-	public ModelAndView getVendaProduto(@RequestParam Long codigo_venda) {
+	@PostMapping("/adicionar-produto-venda")
+	public String postVendaProduto(@ModelAttribute Produto produto, @RequestParam Long codigo_venda) {
+		Venda venda = vendaService.idVenda(codigo_venda);
+		produto = produtoService.idProduto(produto.getId());
+		venda.getProdutos().add(produto);
+		vendaService.criarVenda(venda);
+		return "redirect:/adicionar-produto-venda/" + codigo_venda ;
+	}
+	
+	
+	
+	@GetMapping("/adicionar-produto-venda/{codigo_venda}")
+	public ModelAndView getVendaProduto(@PathVariable(name = "codigo_venda") Long codigo_venda) {
 		ModelAndView model = new ModelAndView("franqueador/venda/continuarVenda");
 		Venda venda = vendaService.idVenda(codigo_venda);
 		model.addObject("venda", venda);
@@ -75,14 +86,6 @@ public class VendaController {
 	}
 	
 	
-	@PostMapping("/criar-produto-venda")
-	public String postVendaProduto(@ModelAttribute Produto produto, @RequestParam Long codigo_venda) {
-		Venda venda = vendaService.idVenda(codigo_venda);
-		produto = produtoService.idProduto(produto.getId());
-		venda.getProdutos().add(produto);
-		vendaService.criarVenda(venda);
-		return "redirect:/adicionar-produto-venda/" + codigo_venda;
-	}
-	
+
 
 }
