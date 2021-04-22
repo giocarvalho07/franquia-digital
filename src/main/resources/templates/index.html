@@ -50,7 +50,7 @@
                         </ul>
                     </div>
                     
-                     <button type="button" id="sidebarCollapse" class="btn btn-rosa">
+                     <button type="button" id="sidebarCollapse" class="btn btn-rosa sidebarCollapseNone">
                         <span class="text-button">Sua conta</span>
                         <i class="fas fa-sign-in-alt"></i>
                     </button>
@@ -64,12 +64,12 @@
 			<div class="conatiner-bloco">
 				<div class="container-conteudo">
 					<div class="col-sm-6">
-						<h4 class="fs-1 mt-3 fw-bolder text-uppercase ">
+						<h4 id="text-bloco" class="fs-1 mt-3 fw-bolder text-uppercase ">
 						Gerenciar sua rede de franquias nunca foi tão:
 						<span class="typedtext"></span>
 						</h4>
 						
-					 <button type="button" id="sidebarCollapse" class="btn btn-rosa mt-3">
+					 <button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 sidebarCollapseActive">
 						<span class="text-button">Conheça</span>
                         <i class="fas fa-sign-in-alt"></i>
                     </button>
@@ -78,7 +78,7 @@
 				</div>
 				
 				<div class="container-img">
-					<img  height="590" th:src="@{/img/EFRANCISCO1.png}" alt="Card image cap">
+					<img id="img-bloco" height="590" th:src="@{/img/EFRANCISCO1.png}" alt="Card image cap">
 				</div>
 			</div>	
         </div>
