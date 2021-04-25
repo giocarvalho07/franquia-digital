@@ -196,10 +196,12 @@
 				                                        </td>       
 				                                        <td>
 				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
-				                                        		data-placement="top" title="Delete"  th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}">
+				                                        		data-placement="top" title="Delete" 
+				                                        		 th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}" >
 				                                        		<i class="fa fa-trash"></i>
 				                                        	</a>
 				                                        </td>
+				                                        
 				                                    </tr>
 				                                    
 

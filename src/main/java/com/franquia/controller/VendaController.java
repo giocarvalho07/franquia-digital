@@ -61,7 +61,7 @@ public class VendaController {
 	
 	
 	@PostMapping("/adicionar-produto-venda")
-	public String postVendaProduto(@ModelAttribute Produto produto, @RequestParam Long codigo_venda) {
+	public String postVendaProduto(Produto produto, @RequestParam Long codigo_venda) {
 		Venda venda = vendaService.idVenda(codigo_venda);
 		produto = produtoService.idProduto(produto.getId());
 		venda.getProdutos().add(produto);

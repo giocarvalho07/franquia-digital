@@ -148,14 +148,14 @@
                 </div>
             </nav>
 
-        <!-- Alert  
+   
 			<div  id="mensagemApagada" class="alert alert-danger " role="alert" >
 				<span> Estoque removido com sucesso </span>	
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>  
 			</div>
-		-->
+
 	
 			
             <h2> Marca ou Fornecedor </h2>
@@ -191,7 +191,7 @@
 									                  </th>
 									                </tr>    
 				                                </thead>
-				                                <tbody>
+				                                <tbody >
 				                                    <tr th:each="marca: ${marcas}">
 				                                        <th class="text-center" scope="row" th:text="${marca.id}"></th>
 														<th th:text="${marca.nome_marca}"></th>

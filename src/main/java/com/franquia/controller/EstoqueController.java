@@ -9,12 +9,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.franquia.model.Estoque;
 import com.franquia.service.EstoqueService;
+import com.franquia.service.MarcaService;
+import com.franquia.service.ProdutoService;
+import com.franquia.service.VendaService;
 
 @Controller
 public class EstoqueController {
 	
 	@Autowired
 	private EstoqueService estoqueService;
+	
+	@Autowired
+	private MarcaService marcaService;
+	
+	@Autowired 
+	private ProdutoService produtoService;
+	
+	@Autowired
+	private VendaService vendaService;
+	
+	
 
 
 	@GetMapping("/home")
@@ -54,8 +68,10 @@ public class EstoqueController {
 		Iterable<Estoque> estoques1 = estoqueService.listarEstoque();
 		model.addObject("estoque", estoques1);
 		return model;
-	}
+		}
 
+	
+	
 	
 	@GetMapping("/editar-estoque")
     public ModelAndView updateEditarLivro(@RequestParam Long id){
