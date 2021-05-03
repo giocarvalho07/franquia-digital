@@ -187,7 +187,7 @@
 				                                <tbody>
 				                                    <tr th:each="estoque: ${estoques}">
 				                                        <th class="text-center" th:text="${estoque.id}"></th>
-														<th th:text="${estoque.nome_estoque}"></th>
+														<th th:text="${estoque.nome_estoque}?: 'Nome do estoque não adicionado'"></th>
 				                                        <td>
 				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
 				                                        		data-target="#exampleModal" th:href="@{'/editar-estoque?id=' + ${estoque.id}}">

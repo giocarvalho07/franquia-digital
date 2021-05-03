@@ -19,17 +19,6 @@ public class EstoqueController {
 	@Autowired
 	private EstoqueService estoqueService;
 	
-	@Autowired
-	private MarcaService marcaService;
-	
-	@Autowired 
-	private ProdutoService produtoService;
-	
-	@Autowired
-	private VendaService vendaService;
-	
-	
-
 
 	@GetMapping("/home")
 	public String index() {

@@ -54,7 +54,7 @@ public class MarcaController {
 	
 
     @GetMapping("/editar-marca")
-    public ModelAndView editarMarca(@RequestParam Long id) {
+    public ModelAndView editarMarca(@RequestParam Long id,  Estoque estoque) {
         ModelAndView model = new ModelAndView("franqueador/marca/editarMarca");
         Marca marca = marcaService.idMarca(id);
         model.addObject("marca",  marca);
