@@ -199,16 +199,23 @@
 				                                        <th class="text-center" scope="row" th:text="${produto.id}"></th>
 														<th th:text="${produto.nome_produto}"></th>
 														<th class="text-center" th:text="${produto.quantidade_produto}"></th>
-														<th th:text="${produto.marca?.nome_marca}"></th>
+														<th th:text="${produto.marca?.nome_marca} ?: 'Fornecedor removido'"></th>
 														<th class="text-center"  th:text="${produto.preco_produto}"></th>
 														 <!-- editar apagar -->
 				                                        <td>
-				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
+				                                        	<a th:if="${produto.marca}" type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
 				                                        		data-target="#exampleModal" th:href="@{'/editar-produto?id=' + ${produto.id}}"> 
 				                                        		<!-- editar apagar 
 				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
 				                                        		-->
-				                                        		
+				                                        		<i class="fa fa-edit"></i>
+				                                        	</a>
+				                                        	
+				                                        	<a  th:if="!${produto.marca}" type="button" data-placement="top" title="Submit" class="btn btn-sucess btn-sm rounded-0" 
+				                                        		data-target="#exampleModal" disabled > 
+				                                        		<!-- editar apagar 
+				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
+				                                        		-->
 				                                        		<i class="fa fa-edit"></i>
 				                                        	</a>
 				                                        </td>       

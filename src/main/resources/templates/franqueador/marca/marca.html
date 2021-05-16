@@ -197,18 +197,43 @@
 														<th th:text="${marca.nome_marca} ?: 'Marca do estoque não adicionada'"></th>
 														<th th:text="${marca.categoria} ?: 'Categoria do estoque não adicionada'"></th>
 														<th th:text="${marca.estoque?.nome_estoque} ?: 'Estoque removido'"></th>
-														 <!-- editar apagar -->
-				                                        <td>
-				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
+														 <!-- editar apagar 
+														 <div th:if="${condition}">
+														  <p>TRUE</p>
+														</div>
+														<div th:unless="${condition}">
+														  <p>FALSE</p>
+														</div>
+														 -->
+														 
+														
+				                                        <td >
+				                                        	<a th:if="${marca.estoque}" type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
 				                                        		data-target="#exampleModal" th:href="@{'editar-marca?id=' 
-				                                        		+ ${marca.id}}"> 
+				                                        		+ ${marca.id}}"  
+				                                        		  > 
 				                                        		<!-- editar apagar 
 				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
 				                                        		-->
 				                                        		
 				                                        		<i class="fa fa-edit"></i>
 				                                        	</a>
-				                                        </td>       
+				                                        	
+				                                        	<a th:if="!${marca.estoque}" type="button" data-placement="top" title="Submit" class="btn btn-sucess btn-sm rounded-0" 
+				                                        		data-target="#exampleModal" disabled > 
+				                                        		<!-- editar apagar 
+				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
+				                                        		-->
+				                                        		
+				                                        		<i class="fa fa-edit"></i>
+				                                        	</a>
+				                                        	
+				                                        	
+				                                        </td>  
+				                                        
+				                                        
+				                                        
+				                                             
 				                                        <td>
 				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
 				                                        		data-placement="top" title="Delete" th:href="@{'deletar-marca?id=' 
