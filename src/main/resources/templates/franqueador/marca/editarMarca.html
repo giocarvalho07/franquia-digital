@@ -211,12 +211,20 @@
 									</select>
 					  			</div>
 										 
+
+									 <div class="form-group">
+						        		<label for="id" class="text-center text-rosa"> Hash estoque </label>
+										<span class="text-center text-light" th:text="${marca.hash_marca}"></span>
+			                            <input type="hidden" th:field="*{hash_marca}" />
+									 </div>
+								
 								
 									<div class="text-center ">	
 										<a href="/marca" class="btn btn-secondary"> Voltar</a>
 										<button type="submit" class="btn btn-rosa"> Registrar </button>	
 										<a href="/ver-marca" class="btn btn-light"> Marca</a>
 									</div>
+									
 								</form>
 						      </div>
 				

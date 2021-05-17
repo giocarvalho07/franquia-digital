@@ -37,6 +37,18 @@ public class Marca implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "id_estoque")
 	private Estoque estoque;
+	
+	@Column(name = "hash_marca")
+	private String hash_marca;
+	
+	
+	public String getHash_marca() {
+		return hash_marca;
+	}
+
+	public void setHash_marca(String hash_marca) {
+		this.hash_marca = hash_marca;
+	}
 
 	public Marca() {
 	}
@@ -89,18 +101,19 @@ public class Marca implements Serializable{
 		this.produtos = produtos;
 	}
 
-	public Marca(Long id, String nome_marca, Categoria categoria, Estoque estoque, List<Produto> produtos) {
+	public Marca(Long id, String nome_marca, Categoria categoria, Estoque estoque, List<Produto> produtos, String hash_marca) {
 		super();
 		this.id = id;
 		this.nome_marca = nome_marca;
 		this.categoria = categoria;
 		this.estoque = estoque;
 		this.produtos = produtos;
+		this.hash_marca = hash_marca;
 	}
 
 	@Override
 	public String toString() {
-		return "Marca [id=" + id + ", nome_marca=" + nome_marca + ", categoria=" + categoria +
+		return "Marca [id=" + id + ", nome_marca=" + nome_marca + ", categoria=" + categoria + ", hash_marca=" + hash_marca +
 				", estoque=" + estoque.getNome_estoque() + ", produtos=" + produtos + "]";
 	}
 	

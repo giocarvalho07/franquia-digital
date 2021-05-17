@@ -184,6 +184,9 @@
 									                    <div class="py-2 text-uppercase">Estoque</div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
+									                    <div class="py-2 text-uppercase">Hash fornecedor</div>
+									                  </th>
+									                  <th scope="col" class="border-0 bg-light">
 									                    <div class="py-2 text-uppercase">Editar </div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
@@ -197,16 +200,9 @@
 														<th th:text="${marca.nome_marca} ?: 'Marca do estoque não adicionada'"></th>
 														<th th:text="${marca.categoria} ?: 'Categoria do estoque não adicionada'"></th>
 														<th th:text="${marca.estoque?.nome_estoque} ?: 'Estoque removido'"></th>
-														 <!-- editar apagar 
-														 <div th:if="${condition}">
-														  <p>TRUE</p>
-														</div>
-														<div th:unless="${condition}">
-														  <p>FALSE</p>
-														</div>
-														 -->
-														 
-														
+	
+														<th th:text="${marca.hash_marca}?: 'Hash não adicionado'"></th>
+															
 				                                        <td >
 				                                        	<a th:if="${marca.estoque}" type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
 				                                        		data-target="#exampleModal" th:href="@{'editar-marca?id=' 

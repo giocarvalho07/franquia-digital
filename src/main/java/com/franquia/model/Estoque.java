@@ -27,7 +27,6 @@ public class Estoque implements Serializable{
 	@Column(name = "nome_estoque")
 	private String nome_estoque;
 	
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "hash_estoque")
 	private String hash_estoque;
 	
