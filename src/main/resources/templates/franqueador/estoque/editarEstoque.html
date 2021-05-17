@@ -172,13 +172,17 @@
 										<span class="text-center text-light" th:text="${estoque.id}"></span>
 			                            <input type="hidden" th:field="*{id}"  />
 									 </div>
-						        
-						        
-												
+						        		
 									<div class="form-group">
 									    <label class="text-center text-rosa"> Nome de sua franquia ou estoque </label>
 									    <input type="text" th:field="*{nome_estoque}" placeholder="digite o nome de sua franquia ou estoque" 
 									    class="form-control placeholder-text" />
+									 </div>
+									 
+									 <div class="form-group">
+						        		<label for="id" class="text-center text-rosa"> Hash estoque </label>
+										<span class="text-center text-light" th:text="${estoque.hash_estoque}"></span>
+			                            <input type="hidden" th:field="*{hash_estoque}" placeholder="gerar o hash da franquia ou estoque"/>
 									 </div>
 								
 									<div class="text-center ">	

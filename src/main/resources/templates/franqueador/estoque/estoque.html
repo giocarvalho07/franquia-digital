@@ -177,6 +177,9 @@
 									                    <div class="py-2 text-uppercase">Nome estoque</div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
+									                    <div class="py-2 text-uppercase">Hash estoque</div>
+									                  </th>
+									                  <th scope="col" class="border-0 bg-light">
 									                    <div class="py-2 text-uppercase">Editar </div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
@@ -188,6 +191,9 @@
 				                                    <tr th:each="estoque: ${estoques}">
 				                                        <th class="text-center" th:text="${estoque.id}"></th>
 														<th th:text="${estoque.nome_estoque}?: 'Nome do estoque não adicionado'"></th>
+														
+														<th th:text="${estoque.hash_estoque}?: 'Hash não adicionado'"></th>
+														
 				                                        <td>
 				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
 				                                        		data-target="#exampleModal" th:href="@{'/editar-estoque?id=' + ${estoque.id}}">

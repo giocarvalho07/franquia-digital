@@ -177,8 +177,9 @@
 			  				
 			  				<div class="form-group">
 			    				<label class="text-center text-rosa"> Gerar hash do estoque </label>
-			    				
-			    				<button type="button" class="btn btn-rosa" data-toggle="modal" data-target="#myModal">Gerar </button>
+			    				<input id="hash" name="hash_estoque" class="form-control placeholder-text" />			    				
+			    				<button  onclick="gerarHashEstoque();" type="button" style="margin-top: 10px;"
+			    				class="btn btn-rosa" >Gerar </button>
 			  				</div>
 		
 							<div class="text-center">	
@@ -199,7 +200,7 @@
     </div>
 
 	
-
+	<script src="js/m.js" ></script>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->

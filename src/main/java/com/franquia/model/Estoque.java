@@ -27,6 +27,10 @@ public class Estoque implements Serializable{
 	@Column(name = "nome_estoque")
 	private String nome_estoque;
 	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "hash_estoque")
+	private String hash_estoque;
+	
 	@OneToMany
 	@JoinColumn(name = "id_estoque")
 	private List<Marca> marcas;
@@ -50,8 +54,15 @@ public class Estoque implements Serializable{
 	public void setNome_estoque(String nome_estoque) {
 		this.nome_estoque = nome_estoque;
 	}
-	
-	
+		
+
+	public String getHash_estoque() {
+		return hash_estoque;
+	}
+
+	public void setHash_estoque(String hash_estoque) {
+		this.hash_estoque = hash_estoque;
+	}
 
 	// get set do is_estoque
 	public List<Marca> getMarcas() {
@@ -64,15 +75,16 @@ public class Estoque implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Estoque [id=" + id + ", nome_estoque=" + nome_estoque + ", marcas=" + marcas +
+		return "Estoque [id=" + id + ", nome_estoque=" + nome_estoque + ", hash_estoque=" + hash_estoque + ", marcas=" + marcas +
 			"]";
 	}
 
-	public Estoque(Long id, String nome_estoque, List<Marca> marcas) {
+	public Estoque(Long id, String nome_estoque, String hash_estoque, List<Marca> marcas) {
 		super();
 		this.id = id;
 		this.nome_estoque = nome_estoque;
 		this.marcas = marcas;
+		this.hash_estoque = hash_estoque;
 	}
 
 
