@@ -10,3 +10,9 @@ function gerarHashFornecedor(){
 	let aleatorio = Math.floor(Math.random() * 200000000);
 	document.getElementById('hashMarca').value = (txt + aleatorio);
 }
+
+function gerarHashProduto(){
+	let txt = "PRO";
+	let aleatorio = Math.floor(Math.random() * 200000000);
+	document.getElementById('hashProduto').value = (txt + aleatorio);
+}

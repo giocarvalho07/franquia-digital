@@ -157,7 +157,7 @@
 			</div>
             
 
-            <h2> Produtos </h2>
+            <h2> Produtos e Serviços </h2>
             
             <div class="container mt-3 ">
 				<div class="card container-form">
@@ -198,8 +198,13 @@
 			    				placeholder="digite o preco do produto" class="form-control placeholder-text" />
 			  				</div>
 			  				
-			  				
-			  						  				
+			  				<div class="form-group">
+			    				<label class="text-center text-rosa"> Gerar hash do fornecedor </label>
+			    				<input id="hashProduto" name="hash_produto" class="form-control placeholder-text" />			    				
+			    				<button  onclick="gerarHashProduto();" type="button" style="margin-top: 10px;"
+			    				class="btn btn-rosa" >Gerar </button>
+			  				</div>			  				
+					  					  						  				
 		
 							<div class="text-center">	
 								<a href="/produto" class="btn btn-secondary"> Voltar</a>
@@ -218,6 +223,7 @@
         </div>
     </div>
 
+	<script src="js/m.js" ></script> 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->

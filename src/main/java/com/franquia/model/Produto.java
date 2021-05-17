@@ -41,7 +41,18 @@ public class Produto implements Serializable{
 	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal preco_produto;
 
+	@Column(name = "hash_produto")
+	private String hash_produto;
 	
+	
+	public String getHash_produto() {
+		return hash_produto;
+	}
+
+	public void setHash_produto(String hash_produto) {
+		this.hash_produto = hash_produto;
+	}
+
 	public Produto() {
 	}
 
@@ -110,11 +121,11 @@ public class Produto implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome_produto=" + nome_produto + ", quantidade_produto=" + quantidade_produto
+		return "Produto [id=" + id + ", nome_produto=" + nome_produto + ", quantidade_produto=" + quantidade_produto + ", hash_produto=" + hash_produto
 				+ ", marca=" + marca.getNome_marca() + ", preco_produto=" + preco_produto + ", vendas=" + vendas + "]";
 	}
 
-	public Produto(Long id, String nome_produto, int quantidade_produto, Marca marca, BigDecimal preco_produto,
+	public Produto(Long id, String nome_produto, int quantidade_produto, Marca marca, BigDecimal preco_produto, String hash_produto,
 			List<Venda> vendas) {
 		super();
 		this.id = id;
@@ -123,6 +134,7 @@ public class Produto implements Serializable{
 		this.marca = marca;
 		this.preco_produto = preco_produto;
 		this.vendas = vendas;
+		this.hash_produto = hash_produto;
 	}
 
 

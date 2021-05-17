@@ -187,6 +187,9 @@
 									                    <div class="py-2 text-uppercase">Preço produto</div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
+									                    <div class="py-2 text-uppercase">Hash produto</div>
+									                  </th>
+									                  <th scope="col" class="border-0 bg-light">
 									                    <div class="py-2 text-uppercase">Editar </div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
@@ -200,7 +203,9 @@
 														<th th:text="${produto.nome_produto}"></th>
 														<th class="text-center" th:text="${produto.quantidade_produto}"></th>
 														<th th:text="${produto.marca?.nome_marca} ?: 'Fornecedor removido'"></th>
-														<th class="text-center"  th:text="${produto.preco_produto}"></th>
+														<th class="text-center"  th:text=" 'R$ ' + ${produto.preco_produto}"></th>
+		
+														<th th:text="${produto.hash_produto}?: 'Hash não adicionado'"></th>		
 														 <!-- editar apagar -->
 				                                        <td>
 				                                        	<a th:if="${produto.marca}" type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
