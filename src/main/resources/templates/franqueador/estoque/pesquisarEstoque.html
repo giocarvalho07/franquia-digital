@@ -33,9 +33,9 @@
 
             <ul class="list-unstyled components">
                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" id="#text-small" aria-expanded="false" class="dropdown-toggle ">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
-                       Estoque
+                        Estoque
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -114,7 +114,7 @@
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">
                     
                     <i class="fas fa-download"></i>
-                     Termos de uso do App
+                    Termos de uso do App
                     </a>
                 </li>
                 <li>
@@ -147,24 +147,33 @@
                     </div>
                 </div>
             </nav>
-
-        <!-- Alert  
-			<div  id="mensagemApagada" class="alert alert-danger " role="alert" >
-				<span> Estoque removido com sucesso </span>	
+            
+                <!-- Page Content              -->
+			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemCadastrada)}" >
+				<span th:text="${mensagemCadastrada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
-			  </button>  
+			  </button>
 			</div>
-		-->
-	
 			
-            <h2> Produtos </h2>
+
+			<div class="row" >
+				<div class="col-lg-10 mx-auto" ></div>	
+				<div class="col-lg-2 mx-auto" >		
+					<a href="/ver-estoque" class="btn btn-rosa btn-sm"> Estoque</a>	
+					<a href="/estoque" class="btn btn-secondary btn-sm"> Cadastro </a>
+				</div>
+			</div>
+
+          <div class="line"></div>
+
+            <h2> Franquia ou Estoque encontrados </h2>
             
 	
-				        <div class="row">
+				        <div class="row mt-3">
 				            <div class="col-lg-12 mx-auto">
 				                <div class="card border-0 rounded shadow">
-				                    <div class="card-body p-11">
+				                    <div class="card-body p-10">
 				
 				                        <!-- Responsive table -->
 				                        <div class="table-responsive">
@@ -172,22 +181,13 @@
 				                                <thead>
 				                                 	<tr>
 									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="p-2 px-3 text-uppercase">Id produto</div>
+									                    <div class="p-2 px-3 text-center  text-uppercase">Id estoque</div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Nome produto</div>
+									                    <div class="py-2 text-uppercase">Nome estoque</div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase"> Qntd. produto </div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Fornecedor</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Preço produto</div>
-									                  </th>
-									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Hash produto</div>
+									                    <div class="py-2 text-uppercase">Hash estoque</div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
 									                    <div class="py-2 text-uppercase">Editar </div>
@@ -198,42 +198,24 @@
 									                </tr>    
 				                                </thead>
 				                                <tbody>
-				                                    <tr th:each="produto: ${produtos}">
-				                                        <th class="text-center" scope="row" th:text="${produto.id}"></th>
-														<th th:text="${produto.nome_produto}"></th>
-														<th class="text-center" th:text="${produto.quantidade_produto}"></th>
-														<th th:text="${produto.marca?.nome_marca} ?: 'Fornecedor removido'"></th>
-														<th class="text-center"  th:text=" 'R$ ' + ${produto.preco_produto}"></th>
-		
-														<th th:text="${produto.hash_produto}?: 'Hash não adicionado'"></th>		
-														 <!-- editar apagar -->
+				                                    <tr th:each="estoque: ${estoques}">
+				                                        <th class="text-center" th:text="${estoque.id}"></th>
+														<th th:text="${estoque.nome_estoque}?: 'Nome do estoque não adicionado'"></th>
+														
+														<th th:text="${estoque.hash_estoque}?: 'Hash não adicionado'"></th>
+														
 				                                        <td>
-				                                        	<a th:if="${produto.marca}" type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
-				                                        		data-target="#exampleModal" th:href="@{'/editar-produto?id=' + ${produto.id}}"> 
-				                                        		<!-- editar apagar 
-				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
-				                                        		-->
-				                                        		<i class="fa fa-edit"></i>
-				                                        	</a>
-				                                        	
-				                                        	<a  th:if="!${produto.marca}" type="button" data-placement="top" title="Submit" class="btn btn-sucess btn-sm rounded-0" 
-				                                        		data-target="#exampleModal" disabled > 
-				                                        		<!-- editar apagar 
-				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
-				                                        		-->
+				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
+				                                        		data-target="#exampleModal" th:href="@{'/editar-estoque?id=' + ${estoque.id}}">
 				                                        		<i class="fa fa-edit"></i>
 				                                        	</a>
 				                                        </td>       
 				                                        <td>
 				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
-				                                        		data-placement="top" title="Delete" th:href="@{'deletar-produto?id=' 
-				                                        		+ ${produto.id}}">
-				                                        		<!-- 
-				                                        		th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}"
-				                                        		 -->
+				                                        		data-placement="top" title="Delete" 
+				                                        		 th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}" >
 				                                        		<i class="fa fa-trash"></i>
 				                                        	</a>
-				                                        	
 				                                        </td>
 				                                        
 				                                    </tr>
@@ -248,8 +230,8 @@
 				            </div>
 				        </div>
 
-            
             <div class="line"></div>
+            
         </div>
     </div>
 
