@@ -69,25 +69,5 @@ public class EstoqueController {
 	}
 	
 	
-	@PostMapping("/pesquisar-estoque")
-	public ModelAndView findEstoque(@RequestParam(required = false) String nome_estoque) {
-		ModelAndView model = new ModelAndView();
-		List<Estoque> pesquisarEstoque;
-		
-		if(nome_estoque == null || nome_estoque.trim().isEmpty()) {
-			pesquisarEstoque = (List<Estoque>) estoqueService.listarEstoque();
-		} else {
-			pesquisarEstoque = estoqueService.pesquisarEstoque(nome_estoque);
-		}
-		
-		model.addObject("pesquisarEstoque", pesquisarEstoque);
-		model.setViewName("franqueador/estoque/pesquisarEstoque");
-		return model;
-	} 
-	
-	//@GetMapping("/pesquisar-estoque")
-	//public String pesquisarNomeEstoque(@RequestParam("nome_estoque") String estoque_nome, ModelMap model) {
-		//model.addAttribute("estoque", estoqueService.buscarPorNome(estoque_nome));
-		//return "franqueador/estoque/pesquisarEstoque";
-	//}
+
 }
