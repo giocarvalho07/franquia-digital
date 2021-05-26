@@ -13,6 +13,8 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet"  th:href="@{css/estoque.css}">
 
+	<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+	
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -155,26 +157,8 @@
 			    <span aria-hidden="true">&times;</span>
 			  </button>
 			</div>
-			
+	
 
-				<div class="row" >	
-					<div class="col-lg-8 mx-auto" ></div>	
-					<div class="col-lg-4 mx-auto" >			
-					<form class="form-inline"  th:action="@{/pesquisar-estoque}" method="post" th:object="${estoque}">
-					  <div class="form-group mx-sm-3 mb-2">
-					    <label for="inputPassword2" class="sr-only">Busque um estoque</label>
-					    <input type="text" class="form-control form-control-sm placeholder-text" 
-					    		placeholder="encontre um estoque"  th:name="nome_estoque">
-					  </div>
-					  <button type="submit" class="btn btn-rosa mb-2 btn-sm" style="margin: 1px;"> Pesquisar </button>
-					</form>
-					</div>
-				</div>
-	
-				 
-            
-            <div class="line"></div>
-	
 	
             <h2> Franquia ou Estoque </h2>
             
@@ -186,7 +170,7 @@
 				
 				                        <!-- Responsive table -->
 				                        <div class="table-responsive">
-				                            <table class="table m-0">
+				                            <table id="minhaTabela" class="table m-0 table-bordered table-hover">
 				                                <thead>
 				                                 	<tr>
 									                  <th scope="col" class="border-0 bg-light">
@@ -251,24 +235,30 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
+	<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+	  
+  	<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
     <script type="text/javascript">
-    
-    
+       
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
             
 
-           
+            $('#minhaTabela').DataTable({
+            	"language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "Nada encontrado",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "Nenhum registro disponível",
+                    "infoFiltered": "(filtrado de _MAX_ registros no total)"
+                }
+            });
             
         });
-        
-
-        
-
-        
-        
+         
     </script>
 </body>
 
