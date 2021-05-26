@@ -30,11 +30,4 @@ public class EstoqueService {
 		return estoqueRepository.findById(id).get();
 	}
 
-
-	public List<Estoque> pesquisarEstoque(String nome_estoque) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 }
