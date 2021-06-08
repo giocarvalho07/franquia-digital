@@ -111,12 +111,7 @@ public class Marca implements Serializable{
 		this.hash_marca = hash_marca;
 	}
 
-	@Override
-	public String toString() {
-		return "Marca [id=" + id + ", nome_marca=" + nome_marca + ", categoria=" + categoria + ", hash_marca=" + hash_marca +
-				", estoque=" + estoque.getNome_estoque() + ", produtos=" + produtos + "]";
-	}
-	
+
 	
 	
 }

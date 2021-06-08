@@ -216,9 +216,7 @@
 
 				                                        <td >
 				                                        	<a th:if="${produto.marca}" type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
-				                                        		data-target="#exampleModal" th:href="@{'editar-produto?id=' 
-				                                        		+ ${produto.id}}"  
-				                                        		  > 
+				                                        		data-target="#exampleModal" th:href="@{/editar-produto/{id} (id=${produto.id})}"  >  
 				                                        		<!-- editar apagar 
 				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
 				                                        		-->
@@ -236,7 +234,7 @@
 				                                        	</a>
 				                                        	
 				                                        	
-				                                        </td>  
+				                                        </td>    
 
 
       

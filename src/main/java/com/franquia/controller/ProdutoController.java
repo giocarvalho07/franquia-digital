@@ -4,11 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.franquia.model.Estoque;
 import com.franquia.model.Marca;
 import com.franquia.model.Produto;
 import com.franquia.service.MarcaService;
@@ -59,16 +58,18 @@ public class ProdutoController {
 		produtoService.deletarProduto(produto);
 		return "redirect:/ver-produto";
 	}
+ 
+    
 
-    @GetMapping("/editar-produto")
-    public ModelAndView editarMarca(@RequestParam Long id,  Marca marca) {
+    
+	@GetMapping("/editar-produto/{id}")
+	public ModelAndView editarProd(@PathVariable("id") Long id) {
 		ModelAndView model = new ModelAndView("franqueador/produto/editarProduto");
 		Produto produto = produtoService.idProduto(id);
-		model.addObject("produto", produto);
-		model.addObject("marcas", marcaService.listarMarca());
-		model.addObject("mensagemEditada", "Produto será editado");
+        model.addObject("produto",  produto);
+        model.addObject("marcas", marcaService.listarMarca());
 		return model;
-    }
+	}
     
 	
 }

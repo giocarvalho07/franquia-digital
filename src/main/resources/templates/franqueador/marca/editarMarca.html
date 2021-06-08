@@ -160,7 +160,7 @@
 
         
 			
-            <h2> Franquia ou Estoque </h2>
+            <h2> Marca ou Fornecedor </h2>
             
 				<div class="container mt-3 ">
 					<div class="card container-form">
@@ -169,7 +169,7 @@
 			        
 						        <form th:action="@{/marca}" method="post" th:object="${marca}">
 						        	<div class="form-group">
-						        		<label for="id" class="text-center text-rosa"> Id estoque </label>
+						        		<label for="id" class="text-center text-rosa"> Id fornecedor </label>
 										<span class="text-center text-light" th:text="${marca.id}"></span>
 			                            <input type="hidden" th:field="*{id}"  />
 									 </div>
@@ -177,7 +177,7 @@
 						        
 												
 									<div class="form-group">
-									    <label class="text-center text-rosa"> Nome da franquia ou estoque </label>
+									    <label class="text-center text-rosa"> Nome da marca ou do fornecedor  </label>
 									    <input type="text" th:field="*{nome_marca}" placeholder="digite o nome da franquia ou estoque" 
 									    class="form-control placeholder-text" />
 									 </div>
