@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.franquia.model.Estoque;
 import com.franquia.model.Marca;
 import com.franquia.model.Produto;
 import com.franquia.service.MarcaService;
@@ -58,15 +59,16 @@ public class ProdutoController {
 		produtoService.deletarProduto(produto);
 		return "redirect:/ver-produto";
 	}
-	
-	@GetMapping("/editar-produto")
-	public ModelAndView editarProduto(@RequestParam Long id) {
+
+    @GetMapping("/editar-produto")
+    public ModelAndView editarMarca(@RequestParam Long id,  Marca marca) {
 		ModelAndView model = new ModelAndView("franqueador/produto/editarProduto");
 		Produto produto = produtoService.idProduto(id);
 		model.addObject("produto", produto);
 		model.addObject("marcas", marcaService.listarMarca());
 		model.addObject("mensagemEditada", "Produto será editado");
 		return model;
-	}
+    }
+    
 	
 }

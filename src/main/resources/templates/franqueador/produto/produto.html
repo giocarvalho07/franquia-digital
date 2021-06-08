@@ -209,23 +209,34 @@
 		
 														<th th:text="${produto.hash_produto}?: 'Hash não adicionado'"></th>		
 														 <!-- editar apagar -->
-				                                        <td>
+
+
+				                                        <td >
 				                                        	<a th:if="${produto.marca}" type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
-				                                        		data-target="#exampleModal" th:href="@{'/editar-produto?id=' + ${produto.id}}"> 
+				                                        		data-target="#exampleModal" th:href="@{'editar-produto?id=' 
+				                                        		+ ${produto.id}}"  
+				                                        		  > 
 				                                        		<!-- editar apagar 
 				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
 				                                        		-->
+				                                        		
 				                                        		<i class="fa fa-edit"></i>
 				                                        	</a>
 				                                        	
-				                                        	<a  th:if="!${produto.marca}" type="button" data-placement="top" title="Submit" class="btn btn-sucess btn-sm rounded-0" 
+				                                        	<a th:if="!${produto.marca}" type="button" data-placement="top" title="Submit" class="btn btn-sucess btn-sm rounded-0" 
 				                                        		data-target="#exampleModal" disabled > 
 				                                        		<!-- editar apagar 
 				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
 				                                        		-->
+				                                        		
 				                                        		<i class="fa fa-edit"></i>
 				                                        	</a>
-				                                        </td>       
+				                                        	
+				                                        	
+				                                        </td>  
+
+
+      
 				                                        <td>
 				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
 				                                        		data-placement="top" title="Delete" th:href="@{'deletar-produto?id=' 
