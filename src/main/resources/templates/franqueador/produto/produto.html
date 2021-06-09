@@ -209,8 +209,8 @@
 				                                <tbody>
 				                                    <tr th:each="produto: ${produtos}">
 				                                        <th class="text-center" scope="row" th:text="${produto.id}"></th>
-														<th class="text-center" th:text="${produto.nome_produto}"></th>
-														<th class="text-center" th:text="${produto.quantidade_produto}"></th>
+														<th class="text-center" th:text="${produto.nome_produto} ?: 'Produto não adicionada'"></th>
+														<th class="text-center" th:text="${produto.quantidade_produto} ?: 'Quantidade não adicionada'"></th>
 														<th class="text-center" th:text="${produto.marca?.nome_marca} ?: 'Fornecedor removido'"></th>
 														<th class="text-center"  th:text=" 'R$ ' + ${produto.preco_produto}"></th>
 		
@@ -244,8 +244,7 @@
       
 				                                        <td class="text-center" >
 				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
-				                                        		data-placement="top" title="Delete" th:href="@{'deletar-produto?id=' 
-				                                        		+ ${produto.id}}">
+				                                        		data-placement="top" title="Delete" th:href="@{'deletar-produto?id=' + ${produto.id}}">
 				                                        		<!-- 
 				                                        		th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}"
 				                                        		 -->

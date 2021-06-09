@@ -201,16 +201,15 @@
 				                                <tbody >
 				                                    <tr th:each="marca: ${marcas}">
 				                                        <th class="text-center" scope="row" th:text="${marca.id}"></th>
-														<th th:text="${marca.nome_marca} ?: 'Marca do estoque não adicionada'"></th>
-														<th th:text="${marca.categoria} ?: 'Categoria do estoque não adicionada'"></th>
-														<th th:text="${marca.estoque?.nome_estoque} ?: 'Estoque removido'"></th>
+														<th class="text-center" th:text="${marca.nome_marca} ?: 'Marca do estoque não adicionada'"></th>
+														<th class="text-center" th:text="${marca.categoria} ?: 'Categoria do estoque não adicionada'"></th>
+														<th class="text-center" th:text="${marca.estoque?.nome_estoque} ?: 'Estoque removido'"></th>
 	
-														<th th:text="${marca.hash_marca}?: 'Hash não adicionado'"></th>
+														<th class="text-center" th:text="${marca.hash_marca}?: 'Hash não adicionado'"></th>
 															
 				                                        <td >
 				                                        	<a th:if="${marca.estoque}" type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
-				                                        		data-target="#exampleModal" th:href="@{'editar-marca?id=' 
-				                                        		+ ${marca.id}}"  
+				                                        		data-target="#exampleModal" th:href="@{'editar-marca?id=' + ${marca.id}}"  
 				                                        		  > 
 				                                        		<!-- editar apagar 
 				                                        		th:href="@{'/editar-estoque?id=' + ${estoque.id}}"
