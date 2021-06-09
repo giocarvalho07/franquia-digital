@@ -481,7 +481,7 @@
 			        	<span class="small text-muted mb-0" th:text="${produto.nome_produto}"></span>
 			        </h4>
 			        <h6 class="card-title"> Quantidade:
-			        	<span class="small text-muted mb-0" th:text="${produto.nome_produto}"></span>
+			        	<span class="small text-muted mb-0" th:text="${produto.quantidade_produto}"></span>
 			        </h6>
 			        <h6 class="card-title"> Fornecedor:
 			        	<span class="small text-muted mb-0" th:text="${produto.marca?.nome_marca}"></span>
@@ -493,7 +493,11 @@
 			        <h6 class="card-title"> Hash:
 			        	<span class="small text-muted mb-0" th:text="${produto.hash_produto}"></span>
 			        </h6>
-			        
+
+		
+					<div class="text-center">	
+						<a href="/ver-produto" class="btn btn-secondary btn-lg btn-block"> Ver Produtos </a>
+					</div>			        
 			        
 			      </div>
 			    </div>
