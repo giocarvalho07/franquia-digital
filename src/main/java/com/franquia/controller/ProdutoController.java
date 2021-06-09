@@ -70,6 +70,16 @@ public class ProdutoController {
         model.addObject("marcas", marcaService.listarMarca());
 		return model;
 	}
+	
+	
+	@GetMapping("/detalhe-produto/{id}")
+	public ModelAndView detalheProd(@PathVariable("id") Long id) {
+		ModelAndView model = new ModelAndView("franqueador/produto/detalheProduto");
+		Produto produto = produtoService.idProduto(id);
+        model.addObject("produto",  produto);
+        model.addObject("marcas", marcaService.listarMarca());
+		return model;
+	}
     
 	
 }
