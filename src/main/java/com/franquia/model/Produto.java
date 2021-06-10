@@ -21,6 +21,7 @@ import org.springframework.format.annotation.NumberFormat;
 @Entity
 public class Produto implements Serializable{
 
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -44,7 +45,19 @@ public class Produto implements Serializable{
 	@Column(name = "hash_produto")
 	private String hash_produto;
 	
+	@Column(name = "imagem_produto")
+	private String imagem_produto;
 	
+	
+	public String getImagem_produto() {
+		return imagem_produto;
+	}
+
+	public void setImagem_produto(String imagem_produto) {
+		this.imagem_produto = imagem_produto;
+	}
+	
+
 	public String getHash_produto() {
 		return hash_produto;
 	}
@@ -121,24 +134,12 @@ public class Produto implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome_produto=" + nome_produto + ", quantidade_produto=" + quantidade_produto + ", hash_produto=" + hash_produto
-				+ ", marca=" + marca.getNome_marca() + ", preco_produto=" + preco_produto + ", vendas=" + vendas + "]";
+		return "Produto [id=" + id + ", nome_produto=" + nome_produto + ", quantidade_produto=" + quantidade_produto
+				+ ", marca=" + marca.getNome_marca()  + ", preco_produto=" + preco_produto + ", hash_produto=" + hash_produto
+				+ ", imagem_produto=" + imagem_produto + ", vendas=" + vendas + "]";
 	}
 
-	public Produto(Long id, String nome_produto, int quantidade_produto, Marca marca, BigDecimal preco_produto, String hash_produto,
-			List<Venda> vendas) {
-		super();
-		this.id = id;
-		this.nome_produto = nome_produto;
-		this.quantidade_produto = quantidade_produto;
-		this.marca = marca;
-		this.preco_produto = preco_produto;
-		this.vendas = vendas;
-		this.hash_produto = hash_produto;
-	}
-
-
-
+	
 	
 	
 }

@@ -163,7 +163,7 @@
 				<div class="card container-form">
 					<div class="card-body">
 
-						<form th:action="@{/produto}" method="post" >
+						<form th:action="@{/produto}" method="post" enctype="multipart/form-data" >
 						
 							<div class="form-group">
 			    				<label class="text-center text-rosa"> Nome do produto</label>
@@ -197,6 +197,8 @@
 			    				<input type="text" name="preco_produto" id=”preco_produto”
 			    				placeholder="digite o preco do produto" class="form-control placeholder-text" />
 			  				</div>
+			  				
+	  				
 			  				
 			  				<div class="form-group">
 			    				<label class="text-center text-rosa"> Gerar hash do fornecedor </label>
@@ -239,6 +241,11 @@
                 $('#sidebar').toggleClass('active');
             });
         });
+        
+        
+ 
+        
+        
     </script>
 </body>
 
