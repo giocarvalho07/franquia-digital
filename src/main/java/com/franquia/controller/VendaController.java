@@ -100,5 +100,15 @@ public class VendaController {
 		return model;
 	}
 	
+	
+	@GetMapping("/deletar-venda")
+	public String deletarVenda(@RequestParam Long codigo_venda) {
+		Venda venda = vendaService.idVenda(codigo_venda);
+		vendaService.deletarVenda(venda);
+		return "redirect:/ver-venda";
+	}
+ 
+    
+	
 
 }

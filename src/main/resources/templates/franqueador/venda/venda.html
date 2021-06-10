@@ -153,12 +153,14 @@
             </nav>
 
 
-			<div  id="mensagemCadastrada" class="alert alert-success " role="alert" >
-				<span> Venda cadastrada com sucesso </span>	
+                <!-- Page Content              -->
+			<div id="alertApagar" class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemApagada)}" >
+				<span th:text="${mensagemApagada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
-			  </button>  
+			  </button>
 			</div>
+	
 
 	
 			
@@ -211,7 +213,7 @@
 	
 														
 														 <!-- editar apagar -->
-				                                        <td class="text-center" >
+				                                        <td class="text-center">
 				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
 				                                        		data-target="#exampleModal" th:href="@{'editar-venda?codigo_venda=' + ${venda.codigo_venda}}"> 
 				                                        		<!-- editar apagar 
@@ -220,19 +222,18 @@
 				                                        		
 				                                        		<i class="fa fa-edit"></i>
 				                                        	</a>
-				                                        </td>       
-				                                        <td class="text-center" >
+				                                        </td>  
+				                                             
+				                                        <td class="text-center">
 				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
-				                                        		data-placement="top" title="Delete" >
-				                                        		<!-- 
-				                                        		th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}"
-				                                        		 -->
+				                                        		data-placement="top" title="Delete" th:href="@{'deletar-venda?codigo_venda=' + ${venda.codigo_venda}}">
+				                                     
 				                                        		<i class="fa fa-trash"></i>
 				                                        	</a>
 				                                        	
 				                                        </td>
 				                                        
-				                                        <td class="text-center" >
+				                                        <td class="text-center">
 				                                        	<a class="btn btn-primary btn-sm rounded-0 " type="button" data-toggle="tooltip" 
 				                                        		data-placement="top" title="Venda" th:href="@{'/adicionar-produto-venda/' + ${venda.codigo_venda}}" >
 				                                        		<!-- 
