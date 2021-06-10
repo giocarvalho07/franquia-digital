@@ -186,6 +186,9 @@
 									                    <div class="py-2 text-center text-uppercase"> Forma de pagamento </div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
+									                    <div class="py-2 text-uppercase">Hash produto</div>
+									                  </th>									                  
+									                  <th scope="col" class="border-0 bg-light">
 									                    <div class="py-2 text-uppercase"> Editar </div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
@@ -203,9 +206,12 @@
 				                                        <th class="text-center" scope="row" th:text="${venda.codigo_venda}"></th>
 														<th th:text="${venda.data_venda}"></th>
 														<th class="text-center" th:text="${venda.forma_pagamento}"></th>
+
+														<th class="text-center"  th:text="${venda.hash_venda}?: 'Hash não adicionado'"></th>		
+	
 														
 														 <!-- editar apagar -->
-				                                        <td>
+				                                        <td class="text-center" >
 				                                        	<a type="button" data-placement="top" title="Edit" class="btn btn-success btn-sm rounded-0" 
 				                                        		data-target="#exampleModal" th:href="@{'editar-venda?codigo_venda=' + ${venda.codigo_venda}}"> 
 				                                        		<!-- editar apagar 
@@ -215,7 +221,7 @@
 				                                        		<i class="fa fa-edit"></i>
 				                                        	</a>
 				                                        </td>       
-				                                        <td>
+				                                        <td class="text-center" >
 				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
 				                                        		data-placement="top" title="Delete" >
 				                                        		<!-- 
@@ -226,7 +232,7 @@
 				                                        	
 				                                        </td>
 				                                        
-				                                        <td>
+				                                        <td class="text-center" >
 				                                        	<a class="btn btn-primary btn-sm rounded-0 " type="button" data-toggle="tooltip" 
 				                                        		data-placement="top" title="Venda" th:href="@{'/adicionar-produto-venda/' + ${venda.codigo_venda}}" >
 				                                        		<!-- 

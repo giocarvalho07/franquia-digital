@@ -18,6 +18,8 @@ function gerarHashProduto(){
 }
 
 
-function alertApagar(){
-	alert(document.getElementById('alertApagar'));
+function gerarHashVenda(){
+	let txt = "VEN";
+	let aleatorio = Math.floor(Math.random() * 200000000);
+	document.getElementById('hashVenda').value = (txt + aleatorio);
 }
