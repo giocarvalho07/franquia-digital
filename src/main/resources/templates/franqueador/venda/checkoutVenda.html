@@ -465,55 +465,92 @@
 			  </button>  
 			</div>
 
-        
-
-
-            <h2> Vendas </h2>
-            
-            <div class="container mt-3 ">
-				<div class="card container-form">
-					<div class="card-body">
-
-						<form th:action="@{/adicionar-produto-venda(codigo_venda=${venda.codigo_venda})}" method="post"  >
-	
-
-			  				<div class="form-group">
-							<label class="text-center text-rosa"> Adicionar produtos </label>
-						        <select name="id"  class="form-control form-select form-select-lg mb-3 col s-12">
-						            <option value="">Escolha o produtos </option>
-						            <option th:each="produto : ${produtos}"
-						                        th:value="${produto.id}"
-						                        th:text="${produto.nome_produto}">
-						            </option>
-						        </select>
-							</div>
-
-
-							<div class="text-center">	
-								<a href="/ver-venda" class="btn btn-secondary"> Voltar</a>
-								<button type="submit" class="btn btn-rosa"> Adicionar </button>	
-								
-								
-								
-								<a type="button" data-placement="top" title="Add" class="btn btn-success "
-				                   data-target="#exampleModal" th:href="@{/detalhe-produto-venda/{codigo_venda} (codigo_venda=${venda.codigo_venda})}"  > 
-				                         Finalizar venda                 	
-				                     <i class="fa fa-plus"></i>
-				                 </a>
-								
-								
-								
-							</div>
-							
-						</form>					
-
-					</div>
-				</div>
-			</div>
+			    
+			<div class="px-4 px-lg-0">
 			
-
-            <div class="line"></div> 
-	
+			  <div class="pb-5">
+			    <div class="container">
+			      <div class="row">
+			        <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+			
+			          <!-- Shopping cart table -->
+			          <div class="table-responsive">
+			            <table class="table">
+			              <thead>
+			                <tr>
+			                  <th scope="col" class="border-0 bg-light">
+			                    <div class="p-2 px-3 text-uppercase">Produtos</div>
+			                  </th>
+			                  <th scope="col" class="border-0 bg-light">
+			                    <div class="py-2 text-center  text-uppercase">Preços</div>
+			                  </th>
+			                  <th scope="col" class="border-0 bg-light">
+			                    <div class="py-2 text-center  text-uppercase">Quantidades</div>
+			                  </th>
+			                  <th scope="col" class="  border-0 bg-light">
+			                    <div class="py-2 text-center text-uppercase">Remover</div>
+			                    
+			                  </th>
+			                </tr>
+			              </thead>
+			              
+			              <tbody>
+			                <tr th:each="produto : ${venda.produtos}"  >
+			                  <th scope="row" class="border-0">
+			                    <div class="p-2">
+			                      <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+			                      <div class="ml-3 d-inline-block align-middle">
+			                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle" th:text="${produto.nome_produto}" >
+			                        </a></h5>
+			                      	<span class="text-muted font-weight-normal font-italic d-block" >   Forma de pagamento:  </span>   
+			                        <span class="text-muted font-weight-normal font-italic d-block" th:text="${venda.forma_pagamento}"> </span>
+			                      </div>
+			                    </div>
+			                  </th>
+			                  <td class="text-center border-0 align-middle"  th:text=" 'R$ ' + ${produto.preco_produto}">
+			                  	<strong></strong>
+			                  </td>
+			                  <td class=" text-center border-0 align-middle" th:text="${produto.quantidade_produto}">
+			                  	<strong></strong>
+			                  </td>
+			                  <td class=" text-center border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+			                </tr>
+			
+			
+			              </tbody>
+			              
+			              
+			              <thead>
+			                <tr>
+			                  <th scope="col" class=" border-0 bg-light">
+			                    <div class="py-2 px-3 text-uppercase"> Total de compras </div>
+			                  </th>
+			                  <th scope="col" class="border-0 bg-light">
+			                    <div class="py-2 text-uppercase text-center "> R$</div>
+			                  </th>
+			                  <th scope="col" class="border-0 bg-light">
+			                    <div class="py-2 text-center  text-uppercase"> 90 </div>
+			                  </th>
+			                  <th scope="col" class="border-0 bg-light">
+			                    <div class="py-2 text-center  text-uppercase"> 
+			                    	<a href="/ver-venda" class="btn btn-success"> Comprar </a>
+			                    	<a href="/ver-venda" class="btn btn-danger"> Voltar </a>
+			                    </div>
+			                    
+			                  </th>
+			                </tr>
+			              </thead>              
+			              
+			            </table>
+			          </div>
+			          <!-- End -->
+			        </div>
+			      </div>
+			
+			
+			    </div>
+			  </div>
+			</div>   		
             
             <div class="line"></div>
         </div>

@@ -86,6 +86,19 @@ public class VendaController {
 	}
 	
 	
-
+	@GetMapping("/detalhe-produto-venda/{codigo_venda}")
+	public ModelAndView detalheProd(@PathVariable("codigo_venda") Long codigo_venda) {
+		ModelAndView model = new ModelAndView("franqueador/venda/checkoutVenda");
+		Venda venda = vendaService.idVenda(codigo_venda);
+		model.addObject("venda", venda);
+		model.addObject("vendas", vendaService.listarVenda());
+		model.addObject("mensagemEditada", "Venda será editado");
+		
+		List<Produto> produtoAssociado = produtoService.listarProduto();
+		produtoAssociado.removeAll(venda.getProdutos());
+		model.addObject("produtos", produtoAssociado);
+		return model;
+	}
+	
 
 }
