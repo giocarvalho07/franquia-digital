@@ -45,18 +45,6 @@ public class Produto implements Serializable{
 	@Column(name = "hash_produto")
 	private String hash_produto;
 	
-	@Column(name = "imagem_produto")
-	private String imagem_produto;
-	
-	
-	public String getImagem_produto() {
-		return imagem_produto;
-	}
-
-	public void setImagem_produto(String imagem_produto) {
-		this.imagem_produto = imagem_produto;
-	}
-	
 
 	public String getHash_produto() {
 		return hash_produto;
@@ -131,13 +119,13 @@ public class Produto implements Serializable{
 		this.vendas = vendas;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Produto [id=" + id + ", nome_produto=" + nome_produto + ", quantidade_produto=" + quantidade_produto
-				+ ", marca=" + marca.getNome_marca()  + ", preco_produto=" + preco_produto + ", hash_produto=" + hash_produto
-				+ ", imagem_produto=" + imagem_produto + ", vendas=" + vendas + "]";
+				+ ", marca=" + marca + ", preco_produto=" + preco_produto + ", hash_produto=" + hash_produto
+				+ ", vendas=" + vendas + "]";
 	}
+
 
 	
 	

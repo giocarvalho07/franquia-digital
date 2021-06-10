@@ -36,6 +36,18 @@ public class Venda implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private FormaPagamento forma_pagamento;
 	
+	@Column(name = "hash_venda")
+	private String hash_venda;
+	
+	public String getHash_venda() {
+		return hash_venda;
+	}
+
+	public void setHash_venda(String hash_venda) {
+		this.hash_venda = hash_venda;
+	}
+
+
 	public Venda() {
 	}
 	
@@ -84,26 +96,20 @@ public class Venda implements Serializable{
 	}
 
 
-
-	
 	@Override
 	public String toString() {
-		return "Venda [codigo_venda=" + codigo_venda + ", data_venda=" + data_venda + ", forma_pagamento=" + forma_pagamento + ", produtos="
-				+ produtos + "]";
+		return "Venda [codigo_venda=" + codigo_venda + ", data_venda=" + data_venda + ", forma_pagamento="
+				+ forma_pagamento + ", hash_venda=" + hash_venda + ", produtos=" + produtos + "]";
 	}
 
-
-	public Venda(Long codigo_venda, String data_venda, FormaPagamento forma_pagamento, List<Produto> produtos) {
+	public Venda(Long codigo_venda, String data_venda, FormaPagamento forma_pagamento, String hash_venda,
+			List<Produto> produtos) {
 		super();
 		this.codigo_venda = codigo_venda;
 		this.data_venda = data_venda;
 		this.forma_pagamento = forma_pagamento;
+		this.hash_venda = hash_venda;
 		this.produtos = produtos;
 	}
-
-
-
-
-
 
 }
