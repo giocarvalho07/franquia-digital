@@ -156,8 +156,8 @@
             </nav>
             
                 <!-- Page Content              -->
-			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemCadastrada)}" >
-				<span th:text="${mensagemCadastrada}">  </span>
+			<div id="alertApagar" class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemApagada)}" >
+				<span th:text="${mensagemApagada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>
@@ -208,7 +208,7 @@
 				                                        		<i class="fa fa-edit"></i>
 				                                        	</a>
 				                                        </td>       
-				                                        <td>
+				                                        <td >
 				                                        	<a class=" text-center btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
 				                                        		data-placement="top" title="Delete" 
 				                                        		 th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}" >
@@ -245,7 +245,8 @@
   	<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
   	
   	<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
-  	
+ 
+ 	<script src="js/m.js" ></script> 	
 
     <script type="text/javascript">
     

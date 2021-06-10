@@ -457,14 +457,13 @@
                 </div>
             </nav>
 
-        <!-- Alert  -->
-			<div class="alert alert-warning" role="alert" th:if="${!#strings.isEmpty(mensagemEditada)}" >
-				<span th:text="${mensagemEditada}">  </span>
+
+			<div  id="mensagemCadastrada" class="alert alert-success " role="alert" >
+				<span> Adicione seus produtos </span>	
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>  
 			</div>
-
         
 
 
@@ -498,7 +497,7 @@
 								<a type="button" data-placement="top" title="Add" class="btn btn-success "
 				                   data-target="#exampleModal" th:href="@{/detalhe-produto-venda/{codigo_venda} (codigo_venda=${venda.codigo_venda})}"  > 
 				                         Finalizar venda                 	
-				                     <i class="fa fa-plus"></i>
+				                   
 				                 </a>
 								
 								
@@ -514,8 +513,7 @@
 
             <div class="line"></div> 
 	
-            
-            <div class="line"></div>
+
         </div>
     </div>
     

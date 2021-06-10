@@ -153,14 +153,13 @@
             </nav>
 
    
-			<div  id="mensagemApagada" class="alert alert-danger " role="alert" >
-				<span> Estoque removido com sucesso </span>	
+                <!-- Page Content              -->
+			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemApagada)}" >
+				<span th:text="${mensagemApagada}">  </span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
-			  </button>  
+			  </button>
 			</div>
-
-	
 			
             <h2> Marca ou Fornecedor </h2>
             

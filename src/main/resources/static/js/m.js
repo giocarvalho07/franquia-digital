@@ -16,3 +16,8 @@ function gerarHashProduto(){
 	let aleatorio = Math.floor(Math.random() * 200000000);
 	document.getElementById('hashProduto').value = (txt + aleatorio);
 }
+
+
+function alertApagar(){
+	alert(document.getElementById('alertApagar'));
+}
