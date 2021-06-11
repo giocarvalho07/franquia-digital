@@ -527,16 +527,19 @@
 			              </tbody>
 			              
 			              
-			              <thead>
-			                <tr>
+			              <tfoot>
+			                <tr  >
 			                  <th scope="col" class=" border-0 bg-light">
 			                    <div class="py-2 px-3 text-uppercase"> Total de compras </div>
 			                  </th>
 			                  <th scope="col" class="border-0 bg-light">
-			                    <div class="py-2 text-uppercase text-center "> R$</div>
+			                    <div class="py-2 text-uppercase text-center "  
+			                   		th:text="${#numbers.formatCurrency(#aggregates.sum(venda.produtos.![preco_produto]))}"> 
+			                   	</div>
 			                  </th>
 			                  <th scope="col" class="border-0 bg-light">
-			                    <div class="py-2 text-center  text-uppercase"> 90 </div>
+			                    <div class="py-2 text-center  text-uppercase" >
+			                     </div>
 			                  </th>
 			                  <th scope="col" class="border-0 bg-light">
 			                    <div class="py-2 text-center  text-uppercase"> 
@@ -546,7 +549,7 @@
 			                    
 			                  </th>
 			                </tr>
-			              </thead>              
+			              </tfoot>              
 			              
 			            </table>
 			          </div>
@@ -579,9 +582,16 @@
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
-
+	
             
-    </script>s
+          var total = 0;
+          //loop por total as últimas células de cada linha do corpo da tabela
+          $('table tbody tr td:last-child').each(function(){
+            total += parseInt($(this).text());
+          });
+          console.log(total);     
+            
+    </script>
  
 </body>
 </html>
