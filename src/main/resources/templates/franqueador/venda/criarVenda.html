@@ -170,7 +170,15 @@
 					<div class="card-body">
 
 						<form th:action="@{/venda}" method="post" >
-						
+
+			  				<div class="form-group">
+			    				<label class="text-center text-rosa"> Gerar tag da venda </label>
+			    				<input id="tagVenda" name="tag_venda" class="form-control placeholder-text" />			    				
+			    				<button  onclick="gerarTagVenda();" type="button" style="margin-top: 10px;"
+			    				class="btn btn-rosa" >Gerar </button>
+			  				</div>	
+			  				
+			  				
 							<div class="form-group">
 			    				<label class="text-center text-rosa"> Data venda</label>
 			    				<input type="date" name="data_venda" id="data_venda"
@@ -193,7 +201,7 @@
 			  				
 			  				
 			  				<div class="form-group">
-			    				<label class="text-center text-rosa"> Gerar hash do fornecedor </label>
+			    				<label class="text-center text-rosa"> Gerar hash da venda </label>
 			    				<input id="hashVenda" name="hash_venda" class="form-control placeholder-text" />			    				
 			    				<button  onclick="gerarHashVenda();" type="button" style="margin-top: 10px;"
 			    				class="btn btn-rosa" >Gerar </button>

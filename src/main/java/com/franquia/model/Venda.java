@@ -39,6 +39,19 @@ public class Venda implements Serializable{
 	@Column(name = "hash_venda")
 	private String hash_venda;
 	
+	@Column(name = "tag_venda")
+	private String tag_venda;
+	
+	
+	
+	public String getTag_venda() {
+		return tag_venda;
+	}
+
+	public void setTag_venda(String tag_venda) {
+		this.tag_venda = tag_venda;
+	}
+
 	public String getHash_venda() {
 		return hash_venda;
 	}
@@ -95,21 +108,24 @@ public class Venda implements Serializable{
 		this.produtos = produtos;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Venda [codigo_venda=" + codigo_venda + ", data_venda=" + data_venda + ", forma_pagamento="
-				+ forma_pagamento + ", hash_venda=" + hash_venda + ", produtos=" + produtos + "]";
+				+ forma_pagamento + ", hash_venda=" + hash_venda + ", tag_venda=" + tag_venda + ", produtos=" + produtos
+				+ "]";
 	}
 
 	public Venda(Long codigo_venda, String data_venda, FormaPagamento forma_pagamento, String hash_venda,
-			List<Produto> produtos) {
+			String tag_venda, List<Produto> produtos) {
 		super();
 		this.codigo_venda = codigo_venda;
 		this.data_venda = data_venda;
 		this.forma_pagamento = forma_pagamento;
 		this.hash_venda = hash_venda;
+		this.tag_venda = tag_venda;
 		this.produtos = produtos;
 	}
 
+
+	
 }

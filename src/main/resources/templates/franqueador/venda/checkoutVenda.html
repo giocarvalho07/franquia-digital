@@ -511,7 +511,16 @@
 			                  <td class=" text-center border-0 align-middle" th:text="${produto.quantidade_produto}">
 			                  	<strong></strong>
 			                  </td>
-			                  <td class=" text-center border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+			                  <td class=" text-center border-0 align-middle">
+			                  
+				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
+				                                        		data-placement="top" title="Delete" >
+				                                        		<!-- 
+				                                        		th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}"
+				                                        		 -->
+				                                        		<i class="fa fa-trash"></i>
+				                                        	</a>			                  	
+			                  </td>
 			                </tr>
 			
 			

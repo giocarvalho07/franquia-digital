@@ -182,6 +182,9 @@
 									                    <div class="p-2 px-3 text-center text-uppercase">Id venda</div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
+									                    <div class="p-2 px-3 text-center text-uppercase">Tag venda</div>
+									                  </th>									                  
+									                  <th scope="col" class="border-0 bg-light">
 									                    <div class="py-2 text-uppercase"> Data venda </div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
@@ -206,6 +209,7 @@
 				                                <tbody>
 				                                    <tr th:each="venda: ${vendas}">
 				                                        <th class="text-center" scope="row" th:text="${venda.codigo_venda}"></th>
+				                                        <th class="text-center" scope="row" th:text="${venda.tag_venda}"></th>
 														<th th:text="${venda.data_venda}"></th>
 														<th class="text-center" th:text="${venda.forma_pagamento}"></th>
 

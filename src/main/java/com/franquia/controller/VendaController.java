@@ -107,8 +107,8 @@ public class VendaController {
 		vendaService.deletarVenda(venda);
 		return "redirect:/ver-venda";
 	}
- 
-    
 	
+
+
 
 }

@@ -23,3 +23,9 @@ function gerarHashVenda(){
 	let aleatorio = Math.floor(Math.random() * 200000000);
 	document.getElementById('hashVenda').value = (txt + aleatorio);
 }
+
+function gerarTagVenda(){
+	let txt = "#VENDA";
+	let aleatorio = Math.floor(Math.random() * 200000000);
+	document.getElementById('tagVenda').value = (txt + aleatorio);
+}
