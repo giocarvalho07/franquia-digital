@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>e-Franquia</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet"  th:href="@{css/style.css}">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+	    <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light " id="nav-verde">
+                <div class="container-fluid">
+		
+					<img class="card-img-top"  th:src="@{/img/EFRANCISCOLOGO.png}" alt="Card image cap">
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active mx-auto">
+                                <a class=" text-nav" href="#">Sobre nós</a>
+                            </li>
+                          
+                            <li class="nav-item active ">
+                                <a class=" text-nav" href="#">Nossas redes sociais</a>
+                            </li>
+                            
+                            <li class="nav-item active ">
+                                <a class=" text-nav" href="#">O que falam de nós</a>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            
+                        </ul>
+                    </div>
+                    
+                     <button type="button" id="sidebarCollapse" class="btn btn-rosa sidebarCollapseNone">
+                        <span class="text-button">Sua conta</span>
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    
+                </div>
+            </nav>
+
+			<div class="conatiner-bloco">
+			
+			    <!-- card1  -->
+				<div class="container-conteudo">
+					<div class="col-sm-6">
+						<h4 id="text-bloco" class="fs-1 mt-3 fw-bolder text-uppercase ">
+						Transformar, escalar, proteger e inovar seus processos com o Blockchain.
+						
+						</h4>
+						
+					 <button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 sidebarCollapseActive btn-lg">
+						<span class="text-button">Conheça</span>
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                    					
+					</div>
+				</div>
+				
+				<div class="container-img">
+					<img id="img-bloco" height="590" th:src="@{/img/EFRANCISCO2.png}" alt="Card image cap">
+				</div>
+			</div>	
+
+
+			<!-- card2  -->			
+			<div class="container">
+				<h2 class="text-center">
+					<strong> Simplicidade é o que nos move</strong>
+				</h2>			
+			</div>
+			
+			<div class="conatiner-bloco">
+			
+				<div class="container-conteudo">
+					<div class="col-sm-6">
+						<h4 id="text-bloco" class="fs-1 mt-3 fw-bolder text-uppercase ">
+						Acompanhe sua cadeia de produtos na palma da sua mão.
+						
+						</h4>
+                    					
+					</div>
+				</div>
+				
+				<div class="container-img">
+					<img id="img-bloco" height="390" th:src="@{/img/EFRANCISCO3.png}" alt="Card image cap">
+				</div>
+			</div>				
+	
+	
+			<!-- card3  -->	
+			<div class="container text-center bg-secondary">
+				<h2 class="text-center">
+					<span class="text-button b">e-Franquia </span> <strong>  é a sua melhor escolha </strong>	
+				</h2>	
+				
+				<button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 sidebarCollapseActive btn-lg">
+					<span class="text-button">Conheça</span>
+                    <i class="fas fa-sign-in-alt"></i>
+                </button>	
+                 						
+			</div>	
+	
+
+			<!-- card4  -->
+			<div class="container mt-5">
+				<h2 class="text-center">
+					<strong> Economize seu tempo</strong>
+				</h2>			
+			</div>
+			
+			<div class="conatiner-bloco">
+			
+				<div class="container-img">
+					<img id="img-bloco" height="590" th:src="@{/img/EFRANCISCO4.png}" alt="Card image cap">
+				</div>
+	
+				<div class="container-conteudo">
+					<div class="col-sm-6">
+						<h4 id="text-bloco" class="fs-1 mt-3 fw-bolder text-uppercase ">
+						Não perca o seu tempo com 
+						<span class="typedtext"></span>
+						</h4>
+						<h4 id="text-bloco" class="fs-1 mt-3 fw-bolder text-uppercase ">
+						Veja seu progresso a qualquer hora em qualquer lugar.
+						</h4>                    					
+					</div>
+				</div>
+				
+			</div>				
+	
+
+			<!-- card5  -->
+			<div class="container mt-5">
+				<h2 class="text-center">
+					<strong> Alcance seus objetivos </strong>
+				</h2>			
+			</div>
+			
+			<div class="conatiner-bloco">
+	
+				<div class="container-conteudo">
+					<div class="col-sm-6">
+						<h4 id="text-bloco" class="fs-1 mt-3 fw-bolder text-uppercase ">
+						Cresça sua máquina de vendas, crie conexões com seus fornecedores e aumente seus leads.
+						</h4>                    					
+					</div>
+				</div>
+	
+	
+				<div class="container-img">
+					<img id="img-bloco" height="590" th:src="@{/img/EFRANCISCO5.png}" alt="Card image cap">
+				</div>
+				
+			</div>				
+	
+
+			<!-- card3  -->	
+			<div class="container text-center d-grid gap-2 ">
+				<h2 class="text-center">
+					<strong>  Conheça agora mesmo o </strong><span class="text-button ">e-Franquia </span> 
+				</h2>	
+				
+				<button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 sidebarCollapseActive btn-lg">
+					<span class="text-button">Conheça</span>
+                    <i class="fas fa-sign-in-alt"></i>
+                </button>	
+                 						
+			</div>	
+	
+				
+        </div>
+        
+        
+        
+        <footer>
+
+			<div class="conatiner-bloco">
+			
+			    <!-- card1  -->
+				<div class="container-conteudo">
+					<div class="col-sm-6">
+						<h4 id="text-bloco" class="fs-1 mt-3 fw-bolder text-uppercase ">
+						<strong>e-Franquia</strong>
+						</h4>
+						
+					 <button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 btn-sm sidebarCollapseActive">
+						<span class="text-button">Conheça</span>
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                    
+                     <button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 btn-sm sidebarCollapseActive">
+						<span class="text-button">Conheça</span>
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                    
+                   	<button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 btn-sm sidebarCollapseActive">
+						<span class="text-button">Conheça</span>
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                    					
+					</div>
+				</div>
+				
+				<div class="container-img">
+					 <button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 btn-sm sidebarCollapseActive btn-lg">
+						<span class="text-button"> Menu</span>
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+				</div>
+			</div>	
+			
+                 						
+			
+        </footer>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+        
+        /*
+         * typingEffect()
+         * It types an array of texts in a random order. I like random stuff🙃
+         */
+        function typingEffect() {
+            const contactTexts = shuffleArray(['Planilhas', 'Rascunhos', 'Anotações', 'Papel e caneta', 'Cadernos']);
+            const typedtext = document.getElementsByClassName("typedtext")[0];
+            let removing = false;
+            let idx = char = 0;
+
+            setInterval(() => { // We define the interval of the typing speed
+
+                // If we do not reach the limit, we insert characters in the html
+                if (char < contactTexts[idx].length) typedtext.innerHTML += contactTexts[idx][char];
+
+                // 15*150ms = time before starting to remove characters
+                if (char == contactTexts[idx].length + 15) removing = true;
+
+                // Removing characters, the last one always
+                if (removing) typedtext.innerHTML = typedtext.innerHTML.substring(0, typedtext.innerHTML.length - 1);
+
+                char++; // Next character
+
+                // When there is nothing else to remove
+                if (typedtext.innerHTML.length === 0) {
+
+                    // If we get to the end of the texts we start over
+                    if (idx === contactTexts.length - 1) idx = 0
+                    else idx++;
+
+                    char = 0; // Start the next text by the first character
+                    removing = false; // No more removing characters
+                }
+
+            }, 150); // Typing speed, 150 ms
+
+        }
+        typingEffect();
+        function shuffleArray(array) {
+            let currentIndex = array.length,
+                temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+        	
+    </script>
+</body>
+
+</html>
