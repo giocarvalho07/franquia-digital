@@ -46,7 +46,7 @@ public class ProdutoController {
 		model.addObject("produtos", produtos);
 		model.addObject("marcas", marcas);
 		model.addObject("mensagemCadastrada", "Produto adicionada com sucesso");
-		return "redirect:/ver-produto";
+		return "redirect:/produto";
 	}
 	
 	@GetMapping("ver-produto")

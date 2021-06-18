@@ -473,7 +473,7 @@
 				<div class="card container-form">
 					<div class="card-body">
 
-						<form th:action="@{/adicionar-produto-venda(codigo_venda=${venda.codigo_venda})}" method="post"  >
+						<form th:action="@{/adicionar-produto-venda(codigo_venda=${venda.codigo_venda})}" method="post"  th:object="${produto}">
 	
 
 			  				<div class="form-group">
@@ -485,13 +485,19 @@
 						                        th:text="${produto.nome_produto}">
 						            </option>
 						        </select>
-							</div>
+							</div> 
+ 
 
+			  				<div class="form-group">
+			    				<label class="text-center text-rosa"> Quantidade do produto</label>
+			    				<input type="number" name="quantidade_produto" id="quantidade_produto"
+			    				placeholder="Verifique a quantidade de produtos e adicione" class="form-control placeholder-text" />
+			  				</div>
 
 							<div class="text-center">	
 								<a href="/ver-venda" class="btn btn-secondary"> Voltar</a>
 								<button type="submit" class="btn btn-rosa"> Adicionar </button>	
-								
+							
 								
 								
 								<a type="button" data-placement="top" title="Add" class="btn btn-success "

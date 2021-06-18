@@ -155,10 +155,7 @@
 			    <span aria-hidden="true">&times;</span>
 			  </button>
 			</div>
-			
 
-
-            
 
             <h2> Produtos e Serviços </h2>
             
@@ -166,11 +163,11 @@
 				<div class="card container-form">
 					<div class="card-body">
 
-						<form th:action="@{/produto}" method="post" enctype="multipart/form-data" >
+						<form th:action="@{/produto}" method="post" >
 						
 							<div class="form-group">
 			    				<label class="text-center text-rosa"> Nome do produto</label>
-			    				<input type="text" name="nome_produto" id=”nome_produto”
+			    				<input type="text" name="nome_produto" id="nome_produto"
 			    				placeholder="digite o nome do produto" class="form-control placeholder-text" />
 			  				</div>
 			  				
