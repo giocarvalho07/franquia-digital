@@ -91,6 +91,12 @@ span {
 	font-weight: bold;
 }
 
+.text-verde{
+	color: #29CC7E;
+	font-weight: bold;
+}
+
+
 h3.logotipo{
 	background-image: url(img/iconeMyBank.jpg); /* Insere a imagem */
 	width: 150px;/* Faz a largura ficar igual a da largura da imagem de exemplo */
