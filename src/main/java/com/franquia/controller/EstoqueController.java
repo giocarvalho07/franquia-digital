@@ -15,13 +15,6 @@ public class EstoqueController {
 	@Autowired
 	private EstoqueService estoqueService;
 	
-
-	@GetMapping("/home")
-	public String index() {
-		return "index";
-	}
-	
-	
 	@GetMapping("/estoque")
 	public String postEstoque() {
 		return "franqueador/estoque/criarEstoque";
