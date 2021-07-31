@@ -404,13 +404,13 @@
                 
 
                 <li>
-                    <a href="#">
+                    <a href="/faq">
                         <i class="fas fa-question"></i>
                         FAQ
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/contato">
                         <i class="fas fa-paper-plane"></i>
                         Contato
                     </a>
@@ -465,9 +465,6 @@
 			</div>
 
         
-			
-            <h2> Produtos e Serviços </h2>
-
             <div class="container mt-3 col-9">
             
 			<div class="card mb-12" style="max-width: 780px;">
@@ -477,9 +474,12 @@
 			    </div>
 			    <div class="col-md-6">
 			      <div class="card-body mt-5">
-			        <h4 class="card-title mt-5"> Produto: 
+			        <h4 class="card-title mt-5"> Nome do produto: 
 			        	<span class="small text-muted mb-0" th:text="${produto.nome_produto}"></span>
 			        </h4>
+			        <h6 class="card-title"> Produto ou Serviço:
+			        	<span class="small text-muted mb-0" th:text="${produto.tipo_produto}"></span>
+			        </h6>			        
 			        <h6 class="card-title"> Quantidade:
 			        	<span class="small text-muted mb-0" th:text="${produto.quantidade_produto}"></span>
 			        </h6>
