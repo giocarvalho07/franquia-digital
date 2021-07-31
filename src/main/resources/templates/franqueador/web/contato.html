@@ -148,70 +148,37 @@
                 </div>
             </nav>
             
-            <!--   -->
-			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemCadastrada)}" >
-				<span th:text="${mensagemCadastrada}" class="col-10">  </span>
-				
-				
-				<a href="/ver-venda" role="alert" class="text-lowercase text-sm-left "  > 
-					<i class="fa fa-arrow-right"></i>
-					Continuar venda  
-				</a>
-							   			 
-			</div>
-            
-            
+
             <div class="container mt-3 ">
 				<div class="card container-form">
-					<div class="card-body">
+					<div class="card-body bg-light">
 
-						<form th:action="@{/venda}" method="post" >
 
-			  				<div class="form-group">
-			    				<label class="text-center text-rosa"> Gerar tag da venda </label>
-			    				<input id="tagVenda" name="tag_venda" class="form-control placeholder-text" />			    				
-			    				<button  onclick="gerarTagVenda();" type="button" style="margin-top: 10px;"
-			    				class="btn btn-rosa" >Gerar </button>
-			  				</div>	
-			  				
-			  				
-							<div class="form-group">
-			    				<label class="text-center text-rosa"> Data venda</label>
-			    				<input type="date" name="data_venda" id="data_venda"
-			    						class="form-control"
-			    						placeholder="escolha a data da venda" />
-			  				</div>
-			  				
-			  				<div class="form-group">
-			    				<label class="text-center text-rosa"> Forma de pagamento </label>
-			    				
-			    				<select class="form-control form-select form-select-lg mb-3 col s-12" 
-										aria-label="Default select example" name="forma_pagamento"  required>
-										<option selected value=""> Escolha a forma de pagamento </option>
-										
-			    						<option th:each="formaPagamento: ${T(com.franquia.model.FormaPagamento).values()}"
-			    							th:value="${formaPagamento}" th:text="${formaPagamento}"
-			    							class="form-control placeholder-text" type="text"></option>
-			    				</select>
-			  				</div>
-			  				
-			  				
-			  				<div class="form-group">
-			    				<label class="text-center text-rosa"> Gerar hash da venda </label>
-			    				<input id="hashVenda" name="hash_venda" class="form-control placeholder-text" />			    				
-			    				<button  onclick="gerarHashVenda();" type="button" style="margin-top: 10px;"
-			    				class="btn btn-rosa" >Gerar </button>
-			  				</div>	
-		  				
-		
-							<div class="text-center">	
-								<a href="/venda" class="btn btn-secondary"> Voltar</a>
-								<button type="submit" class="btn btn-rosa"> Cadastrar </button>	
-								<a href="/ver-venda"  class="btn btn-light"> Venda </a>
-							</div>
-							
-						</form>
-
+						<div class="card mb-4 shadow-sm">
+				                <div class="card-body p-5">
+				                    <!-- Block Social Links-->
+				                    <ul class="list-unstyled">
+				                        <li class="mb-2">
+				                            <!-- Facebook--><a href="" class="social-link social-facebook d-flex align-items-center py-2 rounded-pill shadow-sm"><span class="icon py-1">
+					                            <img src="https://img.icons8.com/material-outlined/24/000000/facebook-circled--v1.png"/>
+					                            </span><span class="font-weight-bold">Entre em contato pelo Facebook</span>
+					                            </a>
+				                        </li>
+				                        <li class="mb-2">
+				                            <!-- Medium--><a href="" class="social-link social-medium d-flex align-items-center py-2 rounded-pill shadow-sm"><span class="icon py-1">
+				                            <img src="https://img.icons8.com/material-outlined/24/000000/whatsapp.png"/>
+				                            </span><span class="font-weight-bold">Entre em contato pelo Whatsapp</span></a>
+				                        </li>
+				                        <li class="mb-2">
+				                            <!-- Instagram--><a href="" class="social-link social-instagram d-flex align-items-center py-2 rounded-pill shadow-sm">
+				                            <span class="icon py-1">
+				                            <img src="https://img.icons8.com/material-outlined/24/000000/instagram-new.png"/>
+				                            </span><span class="font-weight-bold">Entre em contato pelo Instagram</span></a>
+				                        </li>
+				                    </ul>
+				                </div>
+				            </div>
+				        
 					</div>
 				</div>
 			</div>

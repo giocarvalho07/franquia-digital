@@ -148,69 +148,73 @@
                 </div>
             </nav>
             
-            <!--   -->
-			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagemCadastrada)}" >
-				<span th:text="${mensagemCadastrada}" class="col-10">  </span>
-				
-				
-				<a href="/ver-venda" role="alert" class="text-lowercase text-sm-left "  > 
-					<i class="fa fa-arrow-right"></i>
-					Continuar venda  
-				</a>
-							   			 
-			</div>
-            
-            
+
             <div class="container mt-3 ">
 				<div class="card container-form">
-					<div class="card-body">
+					<div class="card-body bg-light">
 
-						<form th:action="@{/venda}" method="post" >
-
-			  				<div class="form-group">
-			    				<label class="text-center text-rosa"> Gerar tag da venda </label>
-			    				<input id="tagVenda" name="tag_venda" class="form-control placeholder-text" />			    				
-			    				<button  onclick="gerarTagVenda();" type="button" style="margin-top: 10px;"
-			    				class="btn btn-rosa" >Gerar </button>
-			  				</div>	
-			  				
-			  				
-							<div class="form-group">
-			    				<label class="text-center text-rosa"> Data venda</label>
-			    				<input type="date" name="data_venda" id="data_venda"
-			    						class="form-control"
-			    						placeholder="escolha a data da venda" />
-			  				</div>
-			  				
-			  				<div class="form-group">
-			    				<label class="text-center text-rosa"> Forma de pagamento </label>
-			    				
-			    				<select class="form-control form-select form-select-lg mb-3 col s-12" 
-										aria-label="Default select example" name="forma_pagamento"  required>
-										<option selected value=""> Escolha a forma de pagamento </option>
-										
-			    						<option th:each="formaPagamento: ${T(com.franquia.model.FormaPagamento).values()}"
-			    							th:value="${formaPagamento}" th:text="${formaPagamento}"
-			    							class="form-control placeholder-text" type="text"></option>
-			    				</select>
-			  				</div>
-			  				
-			  				
-			  				<div class="form-group">
-			    				<label class="text-center text-rosa"> Gerar hash da venda </label>
-			    				<input id="hashVenda" name="hash_venda" class="form-control placeholder-text" />			    				
-			    				<button  onclick="gerarHashVenda();" type="button" style="margin-top: 10px;"
-			    				class="btn btn-rosa" >Gerar </button>
-			  				</div>	
-		  				
-		
-							<div class="text-center">	
-								<a href="/venda" class="btn btn-secondary"> Voltar</a>
-								<button type="submit" class="btn btn-rosa"> Cadastrar </button>	
-								<a href="/ver-venda"  class="btn btn-light"> Venda </a>
-							</div>
-							
-						</form>
+				        <div class="row">
+				            <div class="col-md-3">
+				                <!-- Tabs nav -->
+				                <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+				                    <a class="bg-verde nav-link mb-3 p-3 shadow active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">				                       
+				                        <span class="font-weight-bold small text-uppercase"> Quem pode usar o e-franquia</span></a>
+				
+				                    <a class="bg-verde nav-link mb-3 p-3 shadow" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+			                       
+				                        <span class="font-weight-bold small text-uppercase"> Quanto custa o e-franquia</span></a>
+				
+				                    <a class="bg-verde nav-link mb-3 p-3 shadow" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+				                        <span class="font-weight-bold small text-uppercase"> Existe uma equipe de suporte</span></a>
+				
+				                    <a class="bg-verde nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+				                        <span class="font-weight-bold small text-uppercase"> Meus dados estão seguros</span></a>
+				                    </div>
+				            </div>
+				
+				
+				            <div class="col-md-9">
+				                <!-- Tabs content -->
+				                <div class="tab-content" id="v-pills-tabContent">
+				                    <div class="tab-pane fade shadow rounded bg-white show active p-5" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+				                        <h4 class="font-italic mb-4"> Quem pode usar o e-franquia</h4>
+				                        <p class="font-italic text-muted mb-2">
+				                        	O e-franquia é um Saas (software as a Service) que pode ser usado por qualquer pessoal que tenha ou queira ter 
+				                        	algum tipo de negócio. Com o e-franquia você consegue gerenciar as vendas de produtos e serviços de sua empresa.
+				                       
+				                        </p>
+				                    </div>
+				                    
+				                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+				                        <h4 class="font-italic mb-4">Quanto custa o e-franquia</h4>
+				                        <p class="font-italic text-muted mb-2">
+				                        	O e-franquia conta com 2 planos: 
+				                        	<br>
+				                        	<strong> Free: </strong> é gratuito, nesta versão você pode gerenciar 2 módulos (Produtos e Fornecedores).
+				                        	<br>
+				                        	<strong> Premiun: </strong> custa R$ 49,99/mês, nesta versão você pode gerenciar todos os nossos 6 módulos (Estoques, 
+				                        	Produtos, Fornecedores, Vendas, Relatórios, Login).
+				                        	<br>
+				                        </p>
+				                    </div>
+				                    
+				                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+				                        <h4 class="font-italic mb-4"> Existe uma equipe de suporte</h4>
+				                        <p class="font-italic text-muted mb-2">
+				                        	Sim, contamos com nosso amigo e embaixador virtual o e-Francisco para um atendimento automatizado, 
+				                        	além de uma equipe para tirar todas suas dúvidas.
+				                        </p>
+				                    </div>
+				                    
+				                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+				                        <h4 class="font-italic mb-4"> Meus dados estão seguros</h4>
+				                        <p class="font-italic text-muted mb-2">
+				                        	Sim, nossos produtos são desenvolvidos dia a dia em comum com a LGPD.
+				                        </p>
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
 
 					</div>
 				</div>

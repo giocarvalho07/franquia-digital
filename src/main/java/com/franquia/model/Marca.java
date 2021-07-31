@@ -29,6 +29,10 @@ public class Marca implements Serializable{
 	
 	@Column(name = "nome_marca")
 	private String nome_marca;
+
+	@Column(name = "tipo_produto")
+	@Enumerated(EnumType.STRING)
+	private TipoProduto tipo_produto;
 	
 	@Column(name = "categoria_marca")
 	@Enumerated(EnumType.STRING)
@@ -77,6 +81,16 @@ public class Marca implements Serializable{
 		this.categoria = categoria;
 	}
 
+	
+	
+	public TipoProduto getTipo_produto() {
+		return tipo_produto;
+	}
+
+	public void setTipo_produto(TipoProduto tipo_produto) {
+		this.tipo_produto = tipo_produto;
+	}
+
 	// get set do id_estoque
 	public Estoque getEstoque() {
 		return estoque;
@@ -101,16 +115,17 @@ public class Marca implements Serializable{
 		this.produtos = produtos;
 	}
 
-	public Marca(Long id, String nome_marca, Categoria categoria, Estoque estoque, List<Produto> produtos, String hash_marca) {
+	public Marca(Long id, String nome_marca, TipoProduto tipo_produto, Categoria categoria, Estoque estoque,
+			String hash_marca, List<Produto> produtos) {
 		super();
 		this.id = id;
 		this.nome_marca = nome_marca;
+		this.tipo_produto = tipo_produto;
 		this.categoria = categoria;
 		this.estoque = estoque;
-		this.produtos = produtos;
 		this.hash_marca = hash_marca;
+		this.produtos = produtos;
 	}
-
 
 	
 	

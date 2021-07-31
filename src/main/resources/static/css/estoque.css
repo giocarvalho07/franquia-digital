@@ -91,6 +91,61 @@ h3.logotipo{
 	height: 150px;/* Faz a altura ficar igual a da altura da imagem de exemplo */
 }
 
+bg-verde {
+	background-color: #0CEE81;
+}
+
+.nav-pills-custom .nav-link {
+    color: #aaa;
+    background: #fff;
+    position: relative;
+}
+
+.nav-pills-custom .nav-link.active {
+    color: #45b649;
+    background-color: #0CEE81;
+}
+
+.social-link .icon {
+    width: 4rem;
+    text-align: center;
+    margin-right: 1.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.social-facebook {
+    background: #3b5998;
+}
+
+.social-facebook:hover, .social-facebook:focus {
+    background: #2d4373;
+}
+
+.social-twitter {
+    background: #00aced;
+}
+
+.social-twitter:hover, .social-twitter:focus {
+    background: #0087ba;
+}
+
+.social-medium {
+    background: #02b875;
+}
+
+.social-medium:hover, .social-medium:focus {
+    background: #018655;
+}
+
+.social-instagram {
+    background: #e4405f;
+}
+
+.social-instagram:hover, .social-instagram:focus {
+    background: #d31e40;
+}
+
+
 #text-small{
 	font-size: 9px;
 }

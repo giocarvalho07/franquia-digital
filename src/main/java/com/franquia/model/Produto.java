@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,6 +33,10 @@ public class Produto implements Serializable{
 	@Column(name = "nome_produto")
 	private String nome_produto;
 	
+	@Column(name = "tipo_produto")
+	@Enumerated(EnumType.STRING)
+	private TipoProduto tipo_produto;
+	
 	@Column(name = "quantidade_produto")
 	private int quantidade_produto;
 
@@ -45,6 +51,14 @@ public class Produto implements Serializable{
 	@Column(name = "hash_produto")
 	private String hash_produto;
 	
+
+	public TipoProduto getTipo_produto() {
+		return tipo_produto;
+	}
+
+	public void setTipo_produto(TipoProduto tipo_produto) {
+		this.tipo_produto = tipo_produto;
+	}
 
 	public String getHash_produto() {
 		return hash_produto;
@@ -121,13 +135,11 @@ public class Produto implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome_produto=" + nome_produto + ", quantidade_produto=" + quantidade_produto
-				+ ", marca=" + marca + ", preco_produto=" + preco_produto + ", hash_produto=" + hash_produto
-				+ ", vendas=" + vendas + "]";
+		return "Produto [id=" + id + ", nome_produto=" + nome_produto + ", tipo_produto=" + tipo_produto
+				+ ", quantidade_produto=" + quantidade_produto + ", marca=" + marca + ", preco_produto=" + preco_produto
+				+ ", hash_produto=" + hash_produto + ", vendas=" + vendas + "]";
 	}
 
-
-	
 	
 	
 }

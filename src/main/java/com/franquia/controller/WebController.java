@@ -18,4 +18,14 @@ public class WebController {
 		return "franqueador/web/sobreNos";
 	}
 	
+	@GetMapping("/faq")
+	public String faq() {
+		return "franqueador/web/faq";
+	}
+	
+	@GetMapping("/contato")
+	public String contato() {
+		return "franqueador/web/contato";
+	}
+	
 }

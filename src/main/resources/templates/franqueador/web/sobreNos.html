@@ -31,15 +31,15 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active mx-auto">
-                                <a class=" text-nav" th:href="@{/}"> Início</a>
+                                <a class=" text-nav" id="inicio" th:href="@{/}"> Início</a>
                             </li>
                           
                             <li class="nav-item active ">
-                                <a class=" text-nav" href="#">Nossas redes sociais</a>
+                                <a class=" text-nav" href="/contato">Nossas redes sociais</a>
                             </li>
                             
                             <li class="nav-item active ">
-                                <a class=" text-nav" href="#">O que falam de nós</a>
+                                <a class=" text-nav" href="/faq">O que falam de nós</a>
                             </li>
                         </ul>
                     </div>
@@ -111,12 +111,12 @@
 	
 	
 			<!-- card3  -->	
-			<div class="container text-center bg-secondary">
-				<h2 class="text-center">
-					<span class="text-rosa">e-Franquia </span> <strong class="text-verde">  é a sua melhor escolha </strong>	
+			<div class="container text-center ">
+				<h2 class="text-center mb-3 ">
+					<span class="text-rosa">e-Franquia </span> <strong class="text-black">  é a sua melhor escolha </strong>	
 				</h2>	
 				
-				<button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 sidebarCollapseActive btn-lg">
+				<button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mb-5 sidebarCollapseActive btn-lg">
 					<span class="text-button">Conheça</span>
                     <i class="fas fa-sign-in-alt"></i>
                 </button>	
@@ -197,38 +197,37 @@
         
         <footer>
 
-			<div class="conatiner-bloco">
+			<div class="conatiner-bloco bg-secondary">
 			
 			    <!-- card1  -->
 				<div class="container-conteudo">
-					<div class="col-sm-6">
+					<div class="col-sm-8">
 						<h4 id="text-bloco" class="fs-1 mt-3 fw-bolder text-uppercase ">
 						<strong class="text-rosa">e-Franquia</strong>
 						</h4>
 						
-					 <button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 btn-sm sidebarCollapseActive">
-						<span class="text-button">Conheça</span>
-                        <i class="fas fa-sign-in-alt"></i>
+					 <button type="button" class="btn bg-transparent mt-3 btn-sm ">
+                        <img src="https://img.icons8.com/ios-filled/50/26e07f/instagram-new.png"/>
+                    </button>
+
+					 <button type="button" class="btn bg-transparent mt-3 btn-sm ">
+                        <img src="https://img.icons8.com/ios-filled/50/26e07f/facebook--v1.png"/>
                     </button>
                     
-                     <button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 btn-sm sidebarCollapseActive">
-						<span class="text-button">Conheça</span>
-                        <i class="fas fa-sign-in-alt"></i>
-                    </button>
-                    
-                   	<button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 btn-sm sidebarCollapseActive">
-						<span class="text-button">Conheça</span>
-                        <i class="fas fa-sign-in-alt"></i>
-                    </button>
+					 <button type="button" class="btn bg-transparent mt-3 btn-sm ">
+                        <img src="https://img.icons8.com/ios-filled/50/26e07f/whatsapp.png"/>
+                    </button>                                        
                     					
 					</div>
 				</div>
 				
 				<div class="container-img">
-					 <button type="button" id="sidebarCollapse sidebarCollapseActive" class="btn btn-rosa mt-3 btn-sm sidebarCollapseActive btn-lg">
-						<span class="text-button"> Menu</span>
+					 <a type="button" id="sidebarCollapse sidebarCollapseActive"  class="btn btn-rosa  mb-5 btn-sm sidebarCollapseActive btn-lg" href="/">
+						<span class="text-button" > 
+						
+						Menu</span>
                         <i class="fas fa-sign-in-alt"></i>
-                    </button>
+                    </a>
 				</div>
 			</div>	 						
 			

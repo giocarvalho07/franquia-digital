@@ -96,6 +96,11 @@ span {
 	font-weight: bold;
 }
 
+.text-black{
+	color: #414141;
+	font-weight: bold;
+}
+
 
 h3.logotipo{
 	background-image: url(img/iconeMyBank.jpg); /* Insere a imagem */

@@ -395,23 +395,23 @@
                     </a>
                     <ul class="collapse list-unstyled" id="marketSubmenu">
                         <li>
-                            <a href="#">Adicionar venda</a>
+                            <a href="/venda">Adicionar venda</a>
                         </li>
                         <li>
-                            <a href="#">Ver venda</a>
+                            <a href="/ver-venda">Ver venda</a>
                         </li>
                     </ul>
                 </li>
                 
 
                 <li>
-                    <a href="#">
+                    <a href="/faq">
                         <i class="fas fa-question"></i>
                         FAQ
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/contato">
                         <i class="fas fa-paper-plane"></i>
                         Contato
                     </a>
@@ -465,10 +465,6 @@
 			  </button>  
 			</div>
         
-
-
-            <h2> Vendas </h2>
-            
             <div class="container mt-3 ">
 				<div class="card container-form">
 					<div class="card-body">
@@ -478,7 +474,7 @@
 
 			  				<div class="form-group">
 							<label class="text-center text-rosa"> Adicionar produtos </label>
-						        <select name="id"  class="form-control form-select form-select-lg mb-3 col s-12">
+						        <select name="id"  required class="form-control form-select form-select-lg mb-3 col s-12">
 						            <option value="">Escolha o produtos </option>
 						            <option th:each="produto : ${produtos}"
 						                        th:value="${produto.id}"
@@ -491,25 +487,18 @@
 			  				<div class="form-group">
 			    				<label class="text-center text-rosa"> Quantidade do produto</label>
 			    				<input type="number" name="quantidade_produto" id="quantidade_produto"
-			    				placeholder="Verifique a quantidade de produtos e adicione" class="form-control placeholder-text" />
+			    				placeholder="Verifique a quantidade de produtos e adicione" class="form-control placeholder-text" required/>
 			  				</div>
 
 							<div class="text-center">	
 								<a href="/ver-venda" class="btn btn-secondary"> Voltar</a>
-								<button type="submit" class="btn btn-rosa"> Adicionar </button>	
-							
-								
+								<button type="submit" class="btn btn-rosa"> Adicionar </button>		
 								
 								<a type="button" data-placement="top" title="Add" class="btn btn-success "
 				                   data-target="#exampleModal" th:href="@{/detalhe-produto-venda/{codigo_venda} (codigo_venda=${venda.codigo_venda})}"  > 
-				                         Finalizar venda                 	
-				                   
-				                 </a>
-								
-								
-								
-							</div>
-							
+				                         Finalizar venda                 					                   
+				                 </a>	
+							</div>							
 						</form>					
 
 					</div>
