@@ -395,23 +395,23 @@
                     </a>
                     <ul class="collapse list-unstyled" id="marketSubmenu">
                         <li>
-                            <a href="#">Adicionar venda</a>
+                            <a href="/venda">Adicionar venda</a>
                         </li>
                         <li>
-                            <a href="#">Ver venda</a>
+                            <a href="/ver-venda">Ver venda</a>
                         </li>
                     </ul>
                 </li>
                 
 
                 <li>
-                    <a href="#">
+                    <a href="/faq">
                         <i class="fas fa-question"></i>
                         FAQ
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/contato">
                         <i class="fas fa-paper-plane"></i>
                         Contato
                     </a>
@@ -486,7 +486,7 @@
 			                    <div class="py-2 text-center  text-uppercase">Quantidades</div>
 			                  </th>
 			                  <th scope="col" class="  border-0 bg-light">
-			                    <div class="py-2 text-center text-uppercase">Remover</div>
+			                    <div class="py-2 text-center text-uppercase"></div>
 			                    
 			                  </th>
 			                </tr>
@@ -511,16 +511,7 @@
 			                  <td class=" text-center border-0 align-middle" th:text="${produto.quantidade_produto}">
 			                  	<strong></strong>
 			                  </td>
-			                  <td class=" text-center border-0 align-middle">
-			                  
-				                                        	<a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" id="deleteAlert"
-				                                        		data-placement="top" title="Delete" >
-				                                        		<!-- 
-				                                        		th:href="${(#mvc.url('EC#deleteEstoque').arg(0, estoque.id)).build()}"
-				                                        		 -->
-				                                        		<i class="fa fa-trash"></i>
-				                                        	</a>			                  	
-			                  </td>
+
 			                </tr>
 			
 			
