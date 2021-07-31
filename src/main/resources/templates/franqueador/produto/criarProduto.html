@@ -96,13 +96,13 @@
                 
 
                 <li>
-                    <a href="#">
+                    <a href="/faq">
                         <i class="fas fa-question"></i>
                         FAQ
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/contato">
                         <i class="fas fa-paper-plane"></i>
                         Contato
                     </a>
@@ -157,7 +157,6 @@
 			</div>
 
 
-            <h2> Produtos e Serviços </h2>
             
             <div class="container mt-3 ">
 				<div class="card container-form">
@@ -166,15 +165,28 @@
 						<form th:action="@{/produto}" method="post" >
 						
 							<div class="form-group">
-			    				<label class="text-center text-rosa"> Nome do produto</label>
+			    				<label class="text-center text-rosa"> Nome do produto ou serviço </label>
 			    				<input type="text" name="nome_produto" id="nome_produto"
-			    				placeholder="digite o nome do produto" class="form-control placeholder-text" />
+			    				placeholder="digite o nome do produto ou serviço" class="form-control placeholder-text" />
 			  				</div>
+			  			
+			  				<div class="form-group">
+			    				<label class="text-center text-rosa"> Produto ou Serviço </label>
+			    				
+			    				<select class="form-control form-select form-select-lg mb-3 col s-12" 
+										aria-label="Default select example" name="tipo_produto"  required>
+										<option selected value=""> Escolha o tipo do produto </option>
+										
+			    						<option th:each="tipo_produto: ${T(com.franquia.model.TipoProduto).values()}"
+			    							th:value="${tipo_produto}" th:text="${tipo_produto}"
+			    							class="form-control placeholder-text" type="text"></option>
+			    				</select>
+			  				</div>			  			
 			  				
 			  				<div class="form-group">
-			    				<label class="text-center text-rosa"> Quantidade do produto</label>
+			    				<label class="text-center text-rosa"> Quantidade do produto ou serviço</label>
 			    				<input type="number" name="quantidade_produto" id=”quantidade_produto”
-			    				placeholder="digite a quantidade do produto" class="form-control placeholder-text" />
+			    				placeholder="digite a quantidade do produto ou serviço" class="form-control placeholder-text" />
 			  				</div>
 			  				
 			  				
@@ -195,7 +207,7 @@
 			  				<div class="form-group">
 			    				<label class="text-center text-rosa"> Preço unitário do produto</label>
 			    				<input type="text" name="preco_produto" id=”preco_produto”
-			    				placeholder="digite o preco do produto" class="form-control placeholder-text" />
+			    				placeholder="digite o preco do produto ou serviço" class="form-control placeholder-text" />
 			  				</div>
 			  				
 	  				
