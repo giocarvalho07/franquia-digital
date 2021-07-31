@@ -101,13 +101,13 @@
                 
 
                 <li>
-                    <a href="#">
+                    <a href="/faq">
                         <i class="fas fa-question"></i>
                         FAQ
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/contato">
                         <i class="fas fa-paper-plane"></i>
                         Contato
                     </a>
@@ -164,13 +164,13 @@
 
 
 			
-            <h2> Produtos </h2>
+
             
 	
 				        <div class="row">
-				            <div class="col-lg-12 mx-auto">
+				            <div class="col-12">
 				                <div class="card border-0 rounded shadow">
-				                    <div class="card-body p-11">
+				                    <div class="card-body p-6">
 				
 				                        <!-- Responsive table -->
 				                        <div class="table-responsive">
@@ -181,8 +181,13 @@
 									                    <div class="p-2 px-3 text-uppercase">Id produto</div>
 									                  </th>
 									                  <th scope="col" class="border-0 bg-light">
-									                    <div class="py-2 text-uppercase">Nome produto</div>
+									                    <div class="py-2 text-uppercase">Nome produto ou serviço</div>
 									                  </th>
+									                  
+									                  <th scope="col" class="border-0 bg-light">
+									                    <div class="py-2 text-uppercase">Produto ou Serviço</div>
+									                  </th>									                  
+									                  
 									                  <th scope="col" class="border-0 bg-light">
 									                    <div class="py-2 text-uppercase"> Qntd. produto </div>
 									                  </th>
@@ -211,6 +216,7 @@
 				                                    <tr th:each="produto: ${produtos}">
 				                                        <th class="text-center" scope="row" th:text="${produto.id}"></th>
 														<th class="text-center" th:text="${produto.nome_produto} ?: 'Produto não adicionada'"></th>
+														<th class="text-center" th:text="${produto.tipo_produto} ?: 'Produto ou Serviço não adicionada'"></th>
 														<th class="text-center" th:text="${produto.quantidade_produto} ?: 'Quantidade não adicionada'"></th>
 														<th class="text-center" th:text="${produto.marca?.nome_marca} ?: 'Fornecedor removido'"></th>
 														<th class="text-center"  th:text=" 'R$ ' + ${produto.preco_produto}"></th>
