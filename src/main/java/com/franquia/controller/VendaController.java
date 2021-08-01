@@ -109,7 +109,9 @@ public class VendaController {
 		return "redirect:/ver-venda";
 	}
 	
-	
-
+	@GetMapping("/confirmar-venda")
+	public String confirmarvenda() {
+		return "franqueador/venda/confirmadaVenda";
+	}
 	
 }
