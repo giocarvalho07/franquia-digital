@@ -323,11 +323,19 @@ h4 {
 	}
 	
 	.sidebarCollapseActive {
-	color: rgb(255, 255, 255);
-    background-color: #FD6699;
-    border-color: #FD6699;
-    padding: 15px;
-    width: 300px;
+		color: rgb(255, 255, 255);
+	    background-color: #FD6699;
+	    border-color: #FD6699;
+	    padding: 15px;
+	    width: 300px;
+	}
+	
+	.container{
+		display: none;
+	}
+	
+	.x-bloco{
+		display: none;
 	}
 
 	
